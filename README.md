@@ -36,12 +36,10 @@ Serwisy:
 
 ### 1. Przygotowanie Danych
 
-Przygotowanie danych
+Azure Function App -> Azure AD -> Microsoft Graph
 
 Przykład: https://docs.microsoft.com/en-us/graph/api/driveitem-get-content-format?view=graph-rest-beta&tabs=http
 https://docs.microsoft.com/pl-pl/azure/active-directory/identity-protection/howto-identity-protection-graph-api
-
-Azure Function App -> Azure AD -> Microsoft Graph
 
 ### 2. Ekstrakcja danych
 
