@@ -117,3 +117,12 @@ https://www.pluralsight.com/guides/deploy-a-react-app-to-azure
 deployowanie apki na Spring Boot i React do Azure:
 https://abdul-mannan.medium.com/deploying-a-spring-boot-react-app-to-azure-5b4d844a8d35
 
+### Podział obowiązków
+
+* preprocessing danych
+* użycie Form Recognition (Databricks)
+* meta-learning (ostateczna ekstrakcja cech)
+* zapis wyniku do Blob Strorage (Databricks)
+* implementacja serweru do strony internetowej
+* utworzenie UI wyszukiwarki
+* implementacja elasticsearcha
