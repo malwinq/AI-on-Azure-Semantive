@@ -80,24 +80,20 @@ https://azure.microsoft.com/en-us/overview/linux-on-azure/elastic/#customer-stor
 
 https://www.elastic.co/blog/elasticsearch-service-on-elastic-cloud-now-generally-available-on-microsoft-azure
 
-Połączenie z Blob Storage:
-
+Połączenie z Blob Storage: 
 https://azure.microsoft.com/pl-pl/blog/archive-elasticsearch-indices-to-azure-blob-storage-using-the-azure-cloud-plugin/
 
-Jeśli nie uda się z gotowym serwisem Azurowym to można utworzyć VMke na Azure i tam utworzyć klaster ES.
+Jeśli nie uda się z gotowym serwisem Azurowym to można utworzyć VMke na Azure i tam utworzyć klaster ES. 
 
 Jeśli będzie to działać to teoretycznie nie jest nam potrzebny Blob Storage (ani inna sql-owa baza)
 
-
-Ewentualnie możemy użyć najzwyklejszego indexera na Blob Storage:
-
+Ewentualnie możemy użyć najzwyklejszego indexera na Blob Storage: 
 https://azure.microsoft.com/en-us/blog/azure-search-indexer-for-azure-blob-storage-now-in-public-preview/
-
 ale myślę, że warto spróbować, ale np. zostawić to jako ostatni etap projektu, a najpierw zadbać o podstawową funkcjonalność.
 
 ### 5. Aplikacja webowa
 
-Stack: Node, JS, UI: React/Angular 
+Stack: Node, JS, React/Angular 
 
 Serwisy, których prawdopodobnie użyjemy:
 - App Service
