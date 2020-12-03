@@ -111,7 +111,7 @@ https://www.pluralsight.com/guides/deploy-a-react-app-to-azure
 deployowanie apki na Spring Boot i React do Azure:
 https://abdul-mannan.medium.com/deploying-a-spring-boot-react-app-to-azure-5b4d844a8d35
 
-### Podział obowiązków
+## Podział obowiązków
 
 - Michał: preprocessing danych
 - Michał: użycie Form Recognition (Databricks)
@@ -123,7 +123,7 @@ https://abdul-mannan.medium.com/deploying-a-spring-boot-react-app-to-azure-5b4d8
 
 + (dodatkowo, na końcu) implementacja elasticsearcha
 
-### Harmonogram
+## Harmonogram
 
 Pierwszy kamień milowy - 24.12
 * ujednolicenie danych + ekstrakcja przez Form Recognition - Michał
