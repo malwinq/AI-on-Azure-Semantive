@@ -125,10 +125,13 @@ https://abdul-mannan.medium.com/deploying-a-spring-boot-react-app-to-azure-5b4d8
 
 ### Harmonogram
 
-Pierwszy kamień milowy
+Pierwszy kamień milowy - 24.12
 * ujednolicenie danych + ekstrakcja przez Form Recognition - Michał
 * działająca baza danych - Piotr
 * proste wyszukiwanie + UI - Malwina
 
-Drugi kamień milowy
-* douczenie modelu, 
+
+Drugi kamień milowy - 18.01
+* ekstrakcja danych dopasowana do naszych potrzeb 
+* inteligentne wyszukiwanie po cechach dokumentów
+* ładny, działający UI
