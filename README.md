@@ -113,10 +113,22 @@ https://abdul-mannan.medium.com/deploying-a-spring-boot-react-app-to-azure-5b4d8
 
 ### Podział obowiązków
 
-* preprocessing danych
-* użycie Form Recognition (Databricks)
-* meta-learning (ostateczna ekstrakcja cech)
-* zapis wyniku do Blob Strorage (Databricks)
-* implementacja serweru do strony internetowej
-* utworzenie UI wyszukiwarki
-* implementacja elasticsearcha
+- Michał: preprocessing danych
+- Michał: użycie Form Recognition (Databricks)
+- Michał/Piotr/Malwina: meta-learning (ostateczna ekstrakcja cech)
+- Piotr: zapis wyniku do Blob Storage (Databricks)
+- Piotr/Malwina: implementacja Azure Searcha
+- Malwina: implementacja serweru do strony internetowej
+- Malwina: utworzenie UI wyszukiwarki
+
++ (dodatkowo, na końcu) implementacja elasticsearcha
+
+### Harmonogram
+
+Pierwszy kamień milowy
+* ujednolicenie danych + ekstrakcja przez Form Recognition - Michał
+* działająca baza danych - Piotr
+* proste wyszukiwanie + UI - Malwina
+
+Drugi kamień milowy
+* douczenie modelu, 
