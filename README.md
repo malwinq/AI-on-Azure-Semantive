@@ -30,7 +30,8 @@ Serwisy:
 * Cognitive Services, Form Recognition (i/lub Document Extraction) - do wstępnej ekstrakcji danych
 * Azure Databricks - do połączenia Form Recognition z naszym własnym modelem sieci neuronowej i zapisania wyników w bazie danych
 * Blob Storage - baza danych przechowująca pliki wraz z ich metadanymi
-* Elastic Search App - klaster Elasticsearcha, który implementuje inteligentne wyszukiwanie
+* Elastic Search App - klaster Elasticsearcha, który implementuje inteligentne wyszukiwanie. Jest to element opcjonalny, początkowo
+zaimplementujemy Azure Search lub Cognitive Search
 * Web App - aplikacja webowa (wyszukiwarka)
 
 ## Opis działania
@@ -74,6 +75,9 @@ Porównanie: https://stackshare.io/stackups/azure-cosmos-db-vs-azure-storage
 Inne magazyny danych: https://docs.microsoft.com/en-us/azure/architecture/data-guide/technology-choices/data-storage
 
 ### 4. Silnik wyszukiwania
+
+Pierwszy etap: użyjemy Azure Search lub Cognitive Search, ponieważ Elasticsearch to stosunkowo nowy serwis w Azure i nie
+jesteśmy pewni jego działania.
 
 Elasticsearch - na Azure 'Elastic Cloud'/'Elastic Stack' lub 'Elastic App Search'
 
