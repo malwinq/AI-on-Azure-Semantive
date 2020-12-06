@@ -127,11 +127,12 @@ https://abdul-mannan.medium.com/deploying-a-spring-boot-react-app-to-azure-5b4d8
 
 Pierwszy kamień milowy - 24.12
 * ujednolicenie danych + ekstrakcja przez Form Recognition - Michał
-* działająca baza danych - Piotr
+* działająca baza danych zintegrowana z searchem - Piotr
 * proste wyszukiwanie + UI - Malwina
 
 
 Drugi kamień milowy - 18.01
 * ekstrakcja danych dopasowana do naszych potrzeb 
 * inteligentne wyszukiwanie po cechach dokumentów
+* ? możliwość wgrywania dokumentów
 * ładny, działający UI
