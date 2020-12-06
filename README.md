@@ -18,6 +18,7 @@ Wiele organizacji boryka się z problemem zarządzania wiedzą w organizacji. O 
 * ekstrakcja danych z dokumentów unstructured
 * przechowywanie dokumentów i ich metadanych w bazie danych
 * wyszukiwarka danych i dokumentów w postaci aplikacji webowej
+* możliwość wgrywania nowych plików
 
 ## Architektura rozwiązania
 (wstępna wersja)
