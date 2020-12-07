@@ -35,6 +35,8 @@ Stack: Node, JS, React
 
 Zbiór dokumentów zawierających raporty Unii Europejskiej i rządu USA: http://www.tamirhassan.com/html/dataset.html
 
+Powyższy zbiór dokumentów został wybrany z uwagi na dużą róznorodność danych oraz formatów przekazywania informacji (opisy słowne, tabelatyczne, numeryczne, grafy oraz przebiegi czasowe)
+
 ### Podział obowiązków
 
 - Michał: preprocessing danych
