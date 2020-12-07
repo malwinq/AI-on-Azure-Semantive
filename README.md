@@ -48,6 +48,8 @@ Informacje pozyskiwane z dokumentów:
    - Znalezienie słów kluczowych - tytuł oraz opis na zdjęciach oraz grafach 
    - Funkcje identyfikujące różne słowa kluczowe poza tymi dostarczanymi przez Cognitive Search
 
+Use Case: przeszukiwanie rządowych dokumentów i raportów statystycznych.
+
 ### Podział obowiązków
 
 - Michał: preprocessing danych
