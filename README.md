@@ -35,7 +35,18 @@ Stack: Node, JS, React
 
 Zbiór dokumentów zawierających raporty Unii Europejskiej i rządu USA: http://www.tamirhassan.com/html/dataset.html
 
-Powyższy zbiór dokumentów został wybrany z uwagi na dużą róznorodność danych oraz formatów przekazywania informacji (opisy słowne, tabelatyczne, numeryczne, grafy oraz przebiegi czasowe)
+Powyższy zbiór dokumentów został wybrany z uwagi na dużą różnorodność danych oraz formatów przekazywania informacji (opisy słowne, tabelaryczne, numeryczne, grafy oraz przebiegi czasowe). Dzięki takiemu szerokiemu spektrum można przetestować duży zakres różnych typów metadanych używanych w silniku wyszukiwania.
+
+Wszystkie pliki dokumentów umieszczone są w formie plików pdf. jest to bardzo wygodne ze względu na dużą dostępność narzędzi pozwalających w łatwy sposób analizować zawartość plików w taki formacie.
+
+Informacje pozyskiwane z dokumentów:
+
+1. Form Recognizer - jedną ze składowych cech charakterystycznych przypisanych do dokumentów będą podstawowe informacje zawarte w dokumencie. Forma tych informacji musi być prosta, więc tym narzędziem wydobędziemy informacje o adresach, osobach wspomnianych w dokumencie czy bezpośredniej zawartości tabel.
+2. Cognitive Services:
+   - Cognitive Search - wyodrębnianie kluczowych fraz oraz wykrywanie lokalizacji, osób i organizacji
+3. Custom Skills:
+   - Znalezienie słów kluczowych - tytuł oraz opis na zdjęciach oraz grafach 
+   - Funkcje identyfikujące różne słowa kluczowe poza tymi dostarczanymi przez Cognitive Search
 
 ### Podział obowiązków
 
