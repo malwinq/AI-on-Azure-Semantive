@@ -31,6 +31,10 @@ dostęp będzie ograniczony poprzez Active Directory.
 
 Stack: Node, JS, React
 
+## Dataset
+
+Zbiór dokumentów zawierających raporty Unii Europejskiej i rządu USA: http://www.tamirhassan.com/html/dataset.html
+
 ### Podział obowiązków
 
 - Michał: preprocessing danych
