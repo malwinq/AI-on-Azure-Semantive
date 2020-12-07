@@ -18,126 +18,37 @@ Wiele organizacji boryka się z problemem zarządzania wiedzą w organizacji. O 
 * ekstrakcja danych z dokumentów unstructured
 * przechowywanie dokumentów i ich metadanych w bazie danych
 * wyszukiwarka danych i dokumentów w postaci aplikacji webowej
-* możliwość wgrywania nowych plików
 
 ## Architektura rozwiązania
-(wstępna wersja)
 
 ![Image](images/architektura.png)
 
-Serwisy:
-* Function App, Azure AD, Graph API - do przygotowania danych (zapis w jednolitym formacie itp.)
-* Cognitive Services, Form Recognition (i/lub Document Extraction) - do wstępnej ekstrakcji danych
-* Azure Databricks - do połączenia Form Recognition z naszym własnym modelem sieci neuronowej i zapisania wyników w bazie danych
-* Blob Storage - baza danych przechowująca pliki wraz z ich metadanymi
-* Elastic Search App - klaster Elasticsearcha, który implementuje inteligentne wyszukiwanie. Jest to element opcjonalny, początkowo
-zaimplementujemy Azure Search lub Cognitive Search
-* Web App - aplikacja webowa (wyszukiwarka)
+## Opis działania aplikacji
+Pliki dokumentów będą przechowywane w bazie Azure Blob Storage. Z użyciem Function App i Cognitive Services (Text Analytics
+oraz Form Recognizer) utworzymy Custom Skille. Wyciągnięte meta-dane będą wyszukiwane poprzez Cognitive Search zintegrowanym 
+z API Management. Użytkownik będzie mieć dostęp do dokumentów i ich meta-danych poprzez aplikację webową (Web App), do której
+dostęp będzie ograniczony poprzez Active Directory.
 
-## Opis działania
-
-### 1. Przygotowanie Danych
-
-Azure Function App -> Azure AD -> Microsoft Graph
-
-Przykład: https://docs.microsoft.com/en-us/graph/api/driveitem-get-content-format?view=graph-rest-beta&tabs=http
-https://docs.microsoft.com/pl-pl/azure/active-directory/identity-protection/howto-identity-protection-graph-api
-
-### 2. Ekstrakcja danych
-
-Form Recognizer (Cognitive Services):
-
-https://azure.microsoft.com/en-us/services/cognitive-services/form-recognizer/
-
-https://techcommunity.microsoft.com/t5/azure-ai/accelerate-extraction-of-text-data-and-structure-from-your/ba-p/1507365
-
-https://docs.microsoft.com/en-us/azure/cognitive-services/form-recognizer/overview?tabs=v2-0
-
-Inne:
-- Document Extraction (Cognitive Services) 
-https://docs.microsoft.com/en-us/azure/search/cognitive-search-skill-document-extraction
-
-Możemy użyć tego serwisu jako pierwszy etap ekstrakcji, a potem dostosować wyniki do naszych potrzeb 
-(coś hardcodowanego lub sieć neuronowa).
-
-Dodatkowa ekstrakcja/model sieci - możemy użyć jakiś gotowych serwisów i funkcjonalności Azure (np. AML, Cognitive Services)
-i/lub wytrenować własny model sieci neuronowej (jako meta-learning) - na Databricksach lub lokalnie i wgrać gotowy model.
-
-Azure Databricks - możemy z poziomu jednego Notebooka odwołać się do REST API z Form Recognizer, następnie przerobić te dane (lub przepuścić przez model ML) i zapisać wynik do bazy.
-
-### 3. Przechowywanie danych
-
-* Blob Storage - prosta baza, można w niej przechowywać pliki
-* CosmosDB - fajna baza NoSQL, ale droga
-
-Porównanie: https://stackshare.io/stackups/azure-cosmos-db-vs-azure-storage
-
-Inne magazyny danych: https://docs.microsoft.com/en-us/azure/architecture/data-guide/technology-choices/data-storage
-
-### 4. Silnik wyszukiwania
-
-Pierwszy etap: użyjemy Azure Search lub Cognitive Search, ponieważ Elasticsearch to stosunkowo nowy serwis w Azure i nie
-jesteśmy pewni jego działania.
-
-Elasticsearch - na Azure 'Elastic Cloud'/'Elastic Stack' lub 'Elastic App Search'
-
-https://azure.microsoft.com/en-us/overview/linux-on-azure/elastic/#customer-stories
-
-https://www.elastic.co/blog/elasticsearch-service-on-elastic-cloud-now-generally-available-on-microsoft-azure
-
-Połączenie z Blob Storage: 
-https://azure.microsoft.com/pl-pl/blog/archive-elasticsearch-indices-to-azure-blob-storage-using-the-azure-cloud-plugin/
-
-Jeśli nie uda się z gotowym serwisem Azurowym to można utworzyć VMke na Azure i tam utworzyć klaster ES. 
-
-Jeśli będzie to działać to teoretycznie nie jest nam potrzebny Blob Storage (ani inna sql-owa baza)
-
-Ewentualnie możemy użyć najzwyklejszego indexera na Blob Storage: 
-https://azure.microsoft.com/en-us/blog/azure-search-indexer-for-azure-blob-storage-now-in-public-preview/
-ale myślę, że warto spróbować, ale np. zostawić to jako ostatni etap projektu, a najpierw zadbać o podstawową funkcjonalność.
-
-### 5. Aplikacja webowa
-
-Stack: Node, JS, React/Angular 
-
-Serwisy, których prawdopodobnie użyjemy:
-- App Service
-- Web App/Static Web App
-- Azure Function
-
-Linki:
-
-https://azure.microsoft.com/pl-pl/resources/videos/build-and-deply-nodejs-and-react-apps-with-vscode-appservice-and-cosmosdb/
-
-https://docs.microsoft.com/pl-pl/learn/modules/publish-app-service-static-web-app-api/
-
-https://www.pluralsight.com/guides/deploy-a-react-app-to-azure 
-
-deployowanie apki na Spring Boot i React do Azure:
-https://abdul-mannan.medium.com/deploying-a-spring-boot-react-app-to-azure-5b4d844a8d35
+Stack: Node, JS, React
 
 ### Podział obowiązków
 
 - Michał: preprocessing danych
-- Michał: użycie Form Recognition (Databricks)
-- Michał/Piotr/Malwina: meta-learning (ostateczna ekstrakcja cech)
-- Piotr: zapis wyniku do Blob Storage (Databricks)
-- Piotr/Malwina: implementacja Azure Searcha
-- Malwina: implementacja serweru do strony internetowej
+- Michał: utworzenie Custom Skilli
+- Piotr: Cognitive Search
+- Piotr/Malwina: integracja z API Management
 - Malwina: utworzenie UI wyszukiwarki
-
-+ (dodatkowo, na końcu) implementacja elasticsearcha
+- Piotr/Malwina: autoryzacja użytkowników
 
 ### Harmonogram
 
 Pierwszy kamień milowy - 24.12
-* ujednolicenie danych + ekstrakcja przez Form Recognition - Michał
+* pierwsza ekstrakcja danych - Michał
 * działająca baza danych zintegrowana z searchem - Piotr
 * proste wyszukiwanie + UI - Malwina
 
 
 Drugi kamień milowy - 18.01
-* ekstrakcja danych dopasowana do naszych potrzeb 
-* inteligentne wyszukiwanie po cechach dokumentów
-* ? możliwość wgrywania dokumentów
+* ekstrakcja danych w pełni dopasowana do naszych potrzeb 
+* autoryzacja użytkowników
 * ładny, działający UI
