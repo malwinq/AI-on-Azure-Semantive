@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Select from 'react-select';
+import { getOptions } from 'functions';
 import './DocumentSearch.css';
  
 class DocumentSearch extends Component {
@@ -8,7 +9,8 @@ class DocumentSearch extends Component {
   };
 
   componentDidMount() {
-    
+    const documentObjects = getOptions();
+    this.setState({ options: documentObjects });
   }
 
   handleChange = (event) => {
