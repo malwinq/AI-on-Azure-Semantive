@@ -1,29 +1,39 @@
-import Search from 'react-search';
+import SelectSearch from 'react-select-search';
 import React, { Component } from 'react';
+// import './DocumentSearch.css';s
  
 class DocumentSearch extends Component {
  
   HiItems(items) {
     console.log(items)
   }
+
+  handleChange = (event) => {
+      console.log(event);
+  }
  
   render () {
-    let items = [
-      { id: 0, value: 'ruby' },
-      { id: 1, value: 'javascript' },
-      { id: 2, value: 'lua' },
-      { id: 3, value: 'go' },
-      { id: 4, value: 'julia' }
-    ]
+    const options = [
+        {name: 'Swedish', value: 'sv'},
+        {name: 'English', value: 'en'},
+        {
+            type: 'group',
+            name: 'Group name',
+            items: [
+                {name: 'Spanish', value: 'es'},
+            ]
+        },
+    ];
  
     return (
-      <div>
-        <Search items={items}
-                placeholder='Type keyword or document name'
-                maxSelected={1}
-                multiple={true}
-                onItemsChanged={this.HiItems.bind(this)} />
-      </div>
+        <div>
+            <SelectSearch 
+                options={options} 
+                // name="language" 
+                placeholder="Choose your language"
+                onChange={this.handleChange} 
+            />
+        </div>
     )
   }
 }

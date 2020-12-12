@@ -8,7 +8,7 @@ function App() {
         <p>
           Welcome in Knowledge Mining browser! 
         </p>
-      <DocumentSearch className="document-search"/>
+      <DocumentSearch/>
       </header>
     </div>
   );
