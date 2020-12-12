@@ -1,6 +1,6 @@
-import SelectSearch from 'react-select-search';
 import React, { Component } from 'react';
-// import './DocumentSearch.css';s
+import Select from 'react-select';
+import './DocumentSearch.css';
  
 class DocumentSearch extends Component {
  
@@ -14,20 +14,13 @@ class DocumentSearch extends Component {
  
   render () {
     const options = [
-        {name: 'Swedish', value: 'sv'},
-        {name: 'English', value: 'en'},
-        {
-            type: 'group',
-            name: 'Group name',
-            items: [
-                {name: 'Spanish', value: 'es'},
-            ]
-        },
+        {label: 'Swedish', value: 'sv'},
+        {label: 'English', value: 'en'}
     ];
  
     return (
-        <div>
-            <SelectSearch 
+        <div className="document-search">
+            <Select 
                 options={options} 
                 // name="language" 
                 placeholder="Choose your language"
