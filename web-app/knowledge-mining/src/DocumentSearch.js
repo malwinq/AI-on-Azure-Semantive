@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Select from 'react-select';
-import { getOptions } from 'functions';
+import { getOptions } from './functions';
 import './DocumentSearch.css';
  
 class DocumentSearch extends Component {
@@ -17,16 +17,11 @@ class DocumentSearch extends Component {
       console.log(event);
   }
  
-  render () {
-    const options = [
-        {label: 'Swedish', value: 'sv'},
-        {label: 'English', value: 'en'}
-    ];
- 
+  render () { 
     return (
         <div className="document-search">
             <Select 
-                options={options} 
+                options={this.state.options} 
                 // name="language" 
                 placeholder="Choose your language"
                 onChange={this.handleChange} 
