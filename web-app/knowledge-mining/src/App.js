@@ -1,4 +1,5 @@
 import './App.css';
+import DocumentSearch from './DocumentSearch';
 
 function App() {
   return (
@@ -7,8 +8,8 @@ function App() {
         <p>
           Welcome in Knowledge Mining browser! 
         </p>
+      <DocumentSearch/>
       </header>
-
     </div>
   );
 }
