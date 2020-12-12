@@ -5,7 +5,8 @@ import './DocumentSearch.css';
  
 class DocumentSearch extends Component {
   state = {
-      options: null
+      options: null,
+      document: null
   };
 
   componentDidMount() {
@@ -15,6 +16,7 @@ class DocumentSearch extends Component {
 
   handleChange = (event) => {
       console.log(event);
+      this.setState({ document: event });
   }
  
   render () { 
