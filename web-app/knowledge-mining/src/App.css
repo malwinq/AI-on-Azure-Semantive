@@ -12,3 +12,9 @@
   font-size: calc(10px + 2vmin);
   color: #2803f8;
 }
+
+.document-search {
+  width: 10px;
+  align-items: center;
+  
+}

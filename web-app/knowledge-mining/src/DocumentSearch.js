@@ -19,8 +19,8 @@ class DocumentSearch extends Component {
     return (
       <div>
         <Search items={items}
-                placeholder='Pick your language'
-                maxSelected={3}
+                placeholder='Type keyword or document name'
+                maxSelected={1}
                 multiple={true}
                 onItemsChanged={this.HiItems.bind(this)} />
       </div>
