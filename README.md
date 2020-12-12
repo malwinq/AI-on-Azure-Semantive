@@ -56,3 +56,13 @@ Drugi kamień milowy - 18.01
 * ekstrakcja danych w pełni dopasowana do naszych potrzeb 
 * autoryzacja użytkowników
 * ładny, działający UI
+
+## Aplikacja webowa
+
+Aplikacja została utworzona w serwisie Web App. Stack technologiczny to Node.js i React.
+
+Aby opublikować aplikację na Azure, użyliśmy dodatku Azure App Service w VS Code. 
+
+Do utworzenia szkieletu aplikacji wykorzystaliśmy polecenie ```npx create-react-app knowledge-mining```.
+
+Pełny kod aplikacji dostępny jest w folderze 'web-app'.
