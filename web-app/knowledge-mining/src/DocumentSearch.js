@@ -3,9 +3,12 @@ import Select from 'react-select';
 import './DocumentSearch.css';
  
 class DocumentSearch extends Component {
- 
-  HiItems(items) {
-    console.log(items)
+  state = {
+      options: null
+  };
+
+  componentDidMount() {
+    
   }
 
   handleChange = (event) => {

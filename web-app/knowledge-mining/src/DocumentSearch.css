@@ -1,7 +1,8 @@
 .document-search {
-    width: 200px;
+    width: 50%;
     font-size: 14px;
-    align-items: center;
-    padding-top: 20px;
+    margin-left: auto;
+    margin-right: auto;
     justify-content: center;
+    padding: 20px;
 }
