@@ -1,4 +1,3 @@
-import logo from './logo.svg';
 import './App.css';
 
 function App() {
@@ -9,7 +8,7 @@ function App() {
           Welcome in Knowledge Mining browser! 
         </p>
       </header>
-      
+
     </div>
   );
 }
