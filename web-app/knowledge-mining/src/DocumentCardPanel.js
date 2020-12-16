@@ -10,25 +10,17 @@ class DocumentCardPanel extends Component {
   };
 
   componentDidMount() {
-    console.log('mount');
     this.fetchDocumentsData();
   }
 
-  componentDidUpdate() {
-    console.log('update');
-  }
-
   componentWillReceiveProps() {
-    console.log('props');
     this.fetchDocumentsData();
   }
 
   fetchDocumentsData = () => {
     this.setState({ isLoaded: false });
     const documents = getDocuments(this.props.input);
-    console.log('ty');
-    this.setState({ data: documents });
-    this.setState({ isLoaded: true });
+    this.setState({ data: documents, isLoaded: true });
   }
  
   render () { 
@@ -43,7 +35,7 @@ class DocumentCardPanel extends Component {
     } else if (!data) {
       result = (<div>Nie znaleziono pasujących dokumentów</div>);
     } else {
-      result = data.map((document) => <DocumentCard></DocumentCard>);
+      result = (<div>{data.map((document) => <DocumentCard data={document}/>)} </div>);
     }
     return (
         <div>
