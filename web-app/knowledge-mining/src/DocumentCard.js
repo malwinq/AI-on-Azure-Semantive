@@ -17,7 +17,7 @@ import './DocumentCard.css';
 const styles = {
   root: {
     width: 350,
-    marginTop: 20,
+    marginTop: 40,
     marginLeft: 10,
     display: 'inline-block',
   },
@@ -36,6 +36,10 @@ const styles = {
     backgroundColor: '#1f03bdb4',
     fontSize: 12,
   },
+  keywords: {
+    display: 'inline-block',
+    marginLeft: 7,
+  }
 }
 
 class DocumentCard extends Component {
@@ -75,7 +79,7 @@ class DocumentCard extends Component {
           /> */}
           <CardContent>
             <Typography variant="body2" component="p">
-              Keywords: {keywords.map((word) => (<li>{word}</li>))}
+              Keywords: {keywords.map((word) => (<div className={classes.keywords}> {word} </div>))}
             </Typography>
           </CardContent>
           <CardActions disableSpacing>
