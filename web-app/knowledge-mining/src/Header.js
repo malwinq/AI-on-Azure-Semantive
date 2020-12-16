@@ -1,17 +1,10 @@
 import React, { Component } from 'react';
-import Typography from '@material-ui/core/Typography';
 import { withStyles } from '@material-ui/core/styles';
-import AppBar from '@material-ui/core/AppBar';
-import Toolbar from '@material-ui/core/Toolbar';
-import MenuIcon from '@material-ui/icons/Menu';
-import Menu from "@material-ui/core/Menu";
-import MenuItem from "@material-ui/core/MenuItem";
-import ListItemIcon from '@material-ui/core/ListItemIcon';
-import ListItemText from '@material-ui/core/ListItemText';
-import InboxIcon from '@material-ui/icons/MoveToInbox';
-import DraftsIcon from '@material-ui/icons/Drafts';
+import { Typography, AppBar, Toolbar, Menu, MenuItem, ListItemIcon, ListItemText, Button } from '@material-ui/core';
+import InfoIcon from '@material-ui/icons/Info';
+import HelpIcon from '@material-ui/icons/Help';
 import SendIcon from '@material-ui/icons/Send';
-import Button from '@material-ui/core/Button';
+import MoreVertOutlinedIcon from '@material-ui/icons/MoreVertOutlined';
 
 const styles = {
   navBar: {
@@ -20,20 +13,10 @@ const styles = {
   menuButton: {
     position: 'absolute',
     bottom: '3%',
-    left: '1%'
+    left: '1%',
+    backgroundColor: '#1b19b6'
   }
 }
-  
-// const StyledMenuItem = withStyles((theme) => ({
-//     root: {
-//       '&:focus': {
-//         backgroundColor: theme.palette.primary.main,
-//         '& .MuiListItemIcon-root, & .MuiListItemText-primary': {
-//           color: theme.palette.common.white,
-//         },
-//       },
-//     },
-//   }))(MenuItem);
 
 class Header extends Component {
     state = {
@@ -49,8 +32,8 @@ class Header extends Component {
         this.setState({ menuOpen: false });
     }
 
-    getInfo = () => {
-
+    showInfo = () => {
+        
     }
 
     render() {
@@ -71,7 +54,8 @@ class Header extends Component {
                     variant="contained"
                     color="primary"
                     onClick={this.openMenu}
-                    >Open Menu
+                    >
+                        <MoreVertOutlinedIcon/>
                 </Button>
                 <Menu
                     id="customized-menu"
@@ -80,23 +64,23 @@ class Header extends Component {
                     anchorEl={this.state.anchorEl}
                     keepMounted={true}
                 >
-                    <MenuItem>
+                    <MenuItem onClick={this.showHelp}>
+                        <ListItemIcon>
+                            <HelpIcon fontSize="small" />
+                        </ListItemIcon>
+                        <ListItemText primary="Help" />
+                    </MenuItem>
+                    <MenuItem onClick={this.sendFeedback}>
                         <ListItemIcon>
                             <SendIcon fontSize="small" />
                         </ListItemIcon>
-                        <ListItemText primary="Sent mail" />
+                        <ListItemText primary="Send feedback" />
                     </MenuItem>
-                    <MenuItem>
+                    <MenuItem onClick={this.showInfo}>
                         <ListItemIcon>
-                            <DraftsIcon fontSize="small" />
+                            <InfoIcon fontSize="small" />
                         </ListItemIcon>
-                        <ListItemText primary="Drafts" />
-                    </MenuItem>
-                    <MenuItem>
-                        <ListItemIcon>
-                            <InboxIcon fontSize="small" />
-                        </ListItemIcon>
-                        <ListItemText primary="Inbox" />
+                        <ListItemText primary="Info" />
                     </MenuItem>
             </Menu>
         </div>
