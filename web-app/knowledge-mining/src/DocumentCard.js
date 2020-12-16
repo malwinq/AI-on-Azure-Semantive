@@ -17,9 +17,9 @@ import './DocumentCard.css';
 const styles = {
   root: {
     width: 350,
-    justifyContent: 'center',
     marginTop: 20,
     marginLeft: 10,
+    display: 'inline-block',
   },
   media: {
     height: 0,
@@ -28,15 +28,13 @@ const styles = {
   expand: {
     transform: 'rotate(0deg)',
     marginLeft: 'auto',
-    // transition: theme.transitions.create('transform', {
-    //   duration: theme.transitions.duration.shortest,
-    // }),
   },
   expandOpen: {
     transform: 'rotate(180deg)',
   },
   avatar: {
     backgroundColor: '#1f03bdb4',
+    fontSize: 12,
   },
 }
 
@@ -76,13 +74,13 @@ class DocumentCard extends Component {
             title="Paella dish"
           /> */}
           <CardContent>
-            <Typography variant="body2" color="textSecondary" component="p">
-              Keywords: {keywords}
+            <Typography variant="body2" component="p">
+              Keywords: {keywords.map((word) => (<li>{word}</li>))}
             </Typography>
           </CardContent>
           <CardActions disableSpacing>
             <Button size="small" color="primary">
-              Learn More
+              Download 
             </Button>
             <IconButton
               className={classes.expand} 
@@ -95,8 +93,8 @@ class DocumentCard extends Component {
           </CardActions>
           <Collapse in={expanded} timeout="auto" unmountOnExit>
             <CardContent>
-              <Typography paragraph>Header:</Typography>
-              <Typography paragraph>
+              <Typography paragraph variant="subtitle2">Header:</Typography>
+              <Typography paragraph variant="body2">
                 {header}
               </Typography>
             </CardContent>
