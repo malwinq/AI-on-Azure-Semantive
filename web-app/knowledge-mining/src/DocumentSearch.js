@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './DocumentSearch.css';
 import DocumentCardPanel from './DocumentCardPanel';
 import TextField from '@material-ui/core/TextField';
+import debounce from 'lodash.debounce';
  
 class DocumentSearch extends Component {
   state = {
