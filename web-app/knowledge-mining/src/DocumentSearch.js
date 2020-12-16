@@ -18,7 +18,7 @@ class DocumentSearch extends Component {
       this.setState({ input: event.target.value });
   }
 
-  debouncedSave = debounce((event) => handleChange(event), 1000);
+  debouncedSave = debounce((event) => this.handleChange(event), 400);
  
   render () { 
     return (
