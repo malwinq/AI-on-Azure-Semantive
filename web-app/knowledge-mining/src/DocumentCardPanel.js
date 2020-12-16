@@ -24,22 +24,26 @@ class DocumentCardPanel extends Component {
   }
 
   fetchDocumentsData = () => {
+    this.setState({ isLoaded: false });
     const documents = getDocuments(this.props.input);
     console.log('ty');
     this.setState({ data: documents });
+    this.setState({ isLoaded: true });
   }
  
   render () { 
-    const data = this.state.data;
+    const { data, isLoaded } = this.state;
     let result;
-    if (data) {
-
-    } else {
+    if (!isLoaded) {
       result = (<div className="loading-icon">
-      <ClipLoader
-        size={70}
-        color={"#1f03bdb"}
-    /></div>);
+        <ClipLoader
+          size={70}
+          color={"#1f03bdb"}
+      /></div>);
+    } else if (!data) {
+      result = (<div>Nie znaleziono pasujących dokumentów</div>);
+    } else {
+      result = data.map((document) => <DocumentCard></DocumentCard>);
     }
     return (
         <div>
