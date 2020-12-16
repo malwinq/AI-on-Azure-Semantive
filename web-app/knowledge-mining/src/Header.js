@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { withStyles } from '@material-ui/core/styles';
-import { Typography, AppBar, Toolbar, Menu, MenuItem, ListItemIcon, ListItemText, Button } from '@material-ui/core';
+import { Typography, AppBar, Toolbar, Menu, MenuItem, ListItemIcon, ListItemText, Button, Modal } from '@material-ui/core';
 import InfoIcon from '@material-ui/icons/Info';
 import HelpIcon from '@material-ui/icons/Help';
 import SendIcon from '@material-ui/icons/Send';
@@ -21,7 +21,10 @@ const styles = {
 class Header extends Component {
     state = {
         menuOpen: false,
-        anchorEl: null
+        anchorEl: null,
+        modalInfoOpen: false,
+        modalHelpOpen: false,
+        modalFeedbackOpen: false
     }
 
     openMenu = (event) => {
@@ -33,7 +36,27 @@ class Header extends Component {
     }
 
     showInfo = () => {
-        
+        this.setState({ modalInfoOpen: true });
+    }
+
+    showHelp = () => {
+        this.setState({ modalHelpOpen: true });
+    }
+
+    sendFeedback = () => {
+        this.setState({ modalFeedbackOpen: true });
+    }
+
+    closeInfo = () => {
+        this.setState({ modalInfoOpen: false });
+    }
+
+    closeHelp = () => {
+        this.setState({ modalHelpOpen: false });
+    }
+
+    closeFeedback = () => {
+        this.setState({ modalFeedbackOpen: false });
     }
 
     render() {
@@ -47,6 +70,29 @@ class Header extends Component {
                         </Typography>
                     </Toolbar>
                 </AppBar>
+                <Modal
+                    open={this.state.modalHelpOpen}
+                    onClose={this.closeHelp}
+                >
+                    <div>
+                    This application aims to search for custom properties of unstructured documents. Try to type keywords
+                    or document name or type of document and then the results should be displayed. You can view the detailed
+                    info by clicking expand button and download the document by clicking 'Download'.
+                    </div>
+                </Modal>
+                <Modal
+                    open={this.state.modalInfoOpen}
+                    onClose={this.closeInfo}
+                >
+                    This application aims to search for custom properties of unstructured documents. It's a project made by Warsaw
+                    University of Technology students with cooperation with Semantive company for subject AI on Azure.
+                </Modal>
+                <Modal
+                    open={this.state.modalFeedbackOpen}
+                    onClose={this.closeFeedback}
+                >
+                    You can contact us by email: malwina.kubas@gmail.com. We will appreciate any feedback, thank you!
+                </Modal>
                 <Button
                     className={classes.menuButton}
                     aria-controls="customized-menu"
