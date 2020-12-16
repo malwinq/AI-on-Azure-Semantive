@@ -6,7 +6,7 @@ const styles = {
   root: {
     marginTop: '5%',
     justifyContent: 'center',
-    color: 'blue',
+    color: '#1b19b6',
     marginLeft: 'auto',
     marginBottom: '3%'
   },

@@ -29,7 +29,7 @@ class DocumentCardPanel extends Component {
       result = (<div className="loading-icon">
         <ClipLoader
           size={70}
-          color={"#1f03bdb"}
+          color={"#1b19b6"}
           style={{padding: '10%'}}
       /></div>);
     } else if (!data) {
