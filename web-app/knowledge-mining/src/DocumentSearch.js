@@ -10,6 +10,7 @@ const styles = {
     fontSize: '14px',
     marginLeft: 'auto',
     marginRight: 'auto',
+    marginTop: '5%',
     justifyContent: 'center'
   }
 }
