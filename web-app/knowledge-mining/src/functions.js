@@ -43,6 +43,15 @@ export const getDocuments = (inputText) => {
                 header: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum',
                 type: 'tabela'
             },
+            {
+                title: 'Raport o sportach',
+                keywords: ['sport', 'pilka nozna', 'siatkowka', 'hala', 'dzieci', 'trening'],
+                location: 'http://mockaddress431.com',
+                date: 'Thu Dec 16 2020 ',
+                institution: 'USA',
+                header: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum',
+                type: 'wykres-liczbowy'
+            }
         ]
     } else if (inputText.includes("ra")) {
         return [
@@ -78,6 +87,36 @@ export const getDocuments = (inputText) => {
                 keywords: ['szkolnictwo', 'nauka', 'szkoła', 'oceny', 'podstawówka', 'szkoła średnia'],
                 location: 'http://mockaddress1.com',
                 date: 'Thu Dec 16 2020 ',
+                institution: 'EU',
+                header: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum',
+                type: 'wykres-kolowy'
+            },
+            {
+                title: 'Raport o czytelnictwie',
+                keywords: ['czytelnictwo', 'książki', 'nauka', 'biblioteka', 'literatura', 'fantastyka'],
+                location: 'http://mockaddress1439.com',
+                date: 'Mon Dec 26 2020 ',
+                institution: 'EU',
+                header: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum',
+                type: 'wykres-kolowy'
+            },
+            {
+                title: 'Raport o sportach',
+                keywords: ['sport', 'pilka nozna', 'siatkowka', 'hala', 'dzieci', 'trening'],
+                location: 'http://mockaddress431.com',
+                date: 'Thu Dec 16 2020 ',
+                institution: 'USA',
+                header: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum',
+                type: 'wykres-liczbowy'
+            }
+        ]
+    } else if (inputText.includes("c")) {
+        return [
+            {
+                title: 'Raport o czytelnictwie',
+                keywords: ['czytelnictwo', 'książki', 'nauka', 'biblioteka', 'literatura', 'fantastyka'],
+                location: 'http://mockaddress1439.com',
+                date: 'Mon Dec 26 2020 ',
                 institution: 'EU',
                 header: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum',
                 type: 'wykres-kolowy'
