@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { getKeywords, getOptions } from './functions';
+// import { getKeywords, getOptions } from './functions';
 import './DocumentSearch.css';
 import DocumentCard from './DocumentCard';
 import TextField from '@material-ui/core/TextField';
@@ -12,23 +12,22 @@ class DocumentSearch extends Component {
   };
 
   componentDidMount() {
-    const documentObjects = getOptions();
-    this.setState({ options: documentObjects });
+    // tbd
   }
 
   handleChange = (event) => {
-      console.log(event);
-      const docName = event.value;
-      this.setState({ document: docName });
-      const docKeywords = getKeywords(event.value);
-      this.setState({ keywords: docKeywords });
+      console.log(event.target.value);
   }
  
   render () { 
     return (
         <div>
-            <form noValidate autoComplete="off" className="document-search">
-              <TextField id="outline-basic" label="Search for documents" variant="outlined"/>
+            <form noValidate autoComplete="off">
+              <TextField id="outline-basic" className="document-search"
+                label="Search for documents" 
+                variant="outlined" 
+                onChange={this.handleChange}
+              />
             </form>
             {this.state.document && <DocumentCard documentName={this.state.document} keywords={this.state.keywords}/>}
         </div>
