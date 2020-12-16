@@ -9,10 +9,8 @@ import Avatar from '@material-ui/core/Avatar';
 import IconButton from '@material-ui/core/IconButton';
 import Typography from '@material-ui/core/Typography';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
-import MoreVertIcon from '@material-ui/icons/MoreVert';
 import Button from '@material-ui/core/Button';
 import { withStyles } from '@material-ui/core/styles';
-import './DocumentCard.css';
 
 const styles = {
   root: {
@@ -74,7 +72,7 @@ class DocumentCard extends Component {
           />
           <CardContent>
             <Typography variant="body2" component="p">
-              Keywords: {keywords.map((word) => (<div className={classes.keywords}> {word} </div>))}
+              Keywords: {keywords.map((word) => (<div className={classes.keywords}>{word}</div>))}
             </Typography>
           </CardContent>
           <CardActions disableSpacing>
