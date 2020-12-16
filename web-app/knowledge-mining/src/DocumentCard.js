@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Card from '@material-ui/core/Card';
 import CardHeader from '@material-ui/core/CardHeader';
-import CardMedia from '@material-ui/core/CardMedia';
+// import CardMedia from '@material-ui/core/CardMedia';
 import CardContent from '@material-ui/core/CardContent';
 import CardActions from '@material-ui/core/CardActions';
 import Collapse from '@material-ui/core/Collapse';
@@ -14,6 +14,8 @@ import { withStyles } from '@material-ui/core/styles';
 
 const styles = {
   root: {
+    borderStyle: 'solid',
+    borderColor: '#1b19b6',
     width: 350,
     marginTop: 40,
     marginLeft: 10,
@@ -31,7 +33,7 @@ const styles = {
     transform: 'rotate(180deg)',
   },
   avatar: {
-    backgroundColor: '#1f03bdb4',
+    backgroundColor: '#1b19b6',
     fontSize: 12,
   },
   keywords: {
