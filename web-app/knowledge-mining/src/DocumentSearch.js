@@ -1,14 +1,11 @@
 import React, { Component } from 'react';
-// import { getKeywords, getOptions } from './functions';
 import './DocumentSearch.css';
-import DocumentCard from './DocumentCard';
+import DocumentCardPanel from './DocumentCardPanel';
 import TextField from '@material-ui/core/TextField';
  
 class DocumentSearch extends Component {
   state = {
-      options: null,
-      document: null,
-      keywords: null
+      input: null
   };
 
   componentDidMount() {
@@ -17,6 +14,7 @@ class DocumentSearch extends Component {
 
   handleChange = (event) => {
       console.log(event.target.value);
+      this.setState({ input: event.target.value });
   }
  
   render () { 
@@ -29,7 +27,7 @@ class DocumentSearch extends Component {
                 onChange={this.handleChange}
               />
             </form>
-            {this.state.document && <DocumentCard documentName={this.state.document} keywords={this.state.keywords}/>}
+            {this.state.input && <DocumentCards input={this.state.input}/>}
         </div>
     )
   }
