@@ -35,9 +35,9 @@ class DocumentCardPanel extends Component {
     } else if (!data) {
       result = (<div>Nie znaleziono pasujących dokumentów</div>);
     } else {
-      result = (<div className="cards-list">{data.map((document) => 
+      result = (data.map((document) => 
         <DocumentCard key={document.location} data={document}/>
-      )} </div>);
+      ));
     }
     return (
         <div>
