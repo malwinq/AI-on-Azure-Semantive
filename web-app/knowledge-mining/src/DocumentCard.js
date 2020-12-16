@@ -52,6 +52,11 @@ class DocumentCard extends Component {
     this.setState({ expanded: !expand });
   };
 
+  downloadFile = (location) => {
+    // todo
+    console.log(location);
+  };
+
   render() {
     const expanded = this.state.expanded;
     const { classes } = this.props;
@@ -64,26 +69,16 @@ class DocumentCard extends Component {
                 {institution}
               </Avatar>
             }
-            action={
-              <IconButton aria-label="settings">
-                <MoreVertIcon />
-              </IconButton>
-            }
             title={title}
             subheader={date}
           />
-          {/* <CardMedia
-            className={classes.media}
-            image="/static/images/cards/paella.jpg"
-            title="Paella dish"
-          /> */}
           <CardContent>
             <Typography variant="body2" component="p">
               Keywords: {keywords.map((word) => (<div className={classes.keywords}> {word} </div>))}
             </Typography>
           </CardContent>
           <CardActions disableSpacing>
-            <Button size="small" color="primary">
+            <Button size="small" color="primary" onClick={() => this.downloadFile(location)}>
               Download 
             </Button>
             <IconButton
@@ -101,6 +96,7 @@ class DocumentCard extends Component {
               <Typography paragraph variant="body2">
                 {header}
               </Typography>
+              <Typography paragraph variant="subtitle2">Typ danych: {type}</Typography>
             </CardContent>
           </Collapse>
         </Card>
