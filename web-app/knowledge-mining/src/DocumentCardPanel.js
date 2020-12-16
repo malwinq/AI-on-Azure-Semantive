@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import DocumentCard from './DocumentCard';
-import { get}
+import { getDocuments } from './functions';
  
 class DocumentCardPanel extends Component {
   state = {
@@ -8,15 +8,26 @@ class DocumentCardPanel extends Component {
   };
 
   componentDidMount() {
-    const input = this.props.input;
+    console.log('mount');
+    this.fetchDocumentsData();
+  }
 
+  componentDidUpdate() {
+    console.log('update');
+    // this.fetchDocumentsData();
+  }
+
+  fetchDocumentsData() {
+    const documents = getDocuments(this.props.input);
+    console.log('ty');
+    this.setState({ data: documents });
   }
  
   render () { 
-    let CardList = 
+    // let CardList = 
     return (
         <div>
-            {}
+            {/* {this.state.data} */}
         </div>
     )
   }

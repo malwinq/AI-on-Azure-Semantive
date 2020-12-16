@@ -3,7 +3,7 @@ import axios from 'axios';
 // tbd - get all options
 
 export const getDocuments = (inputText) => {
-    if ("s" in inputText) {
+    if (inputText.includes("s")) {
         return [
             {
                 title: 'Raport o szkolnictwie 1',
@@ -24,7 +24,7 @@ export const getDocuments = (inputText) => {
                 type: 'wykres-liczbowy'
             }
         ]
-    } else if ("ro" in inputText) {
+    } else if (inputText.includes("ro")) {
         return [
             {
                 title: 'Raport o rolnictwie 1',
@@ -45,7 +45,7 @@ export const getDocuments = (inputText) => {
                 type: 'tabela'
             },
         ]
-    } else if ("ra" in inputText) {
+    } else if (inputText.includes("ra")) {
         return [
             {
                 title: 'Raport o rolnictwie 1',

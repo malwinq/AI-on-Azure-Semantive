@@ -16,6 +16,8 @@ class DocumentSearch extends Component {
       console.log(event.target.value);
       this.setState({ input: event.target.value });
   }
+
+  debouncedSave = debounce((event) => handleChange(event), 1000);
  
   render () { 
     return (
@@ -24,10 +26,10 @@ class DocumentSearch extends Component {
               <TextField id="outline-basic" className="document-search"
                 label="Search for documents" 
                 variant="outlined" 
-                onChange={this.handleChange}
+                onChange={this.debouncedSave}
               />
             </form>
-            {this.state.input && <DocumentCards input={this.state.input}/>}
+            {this.state.input && <DocumentCardPanel input={this.state.input}/>}
         </div>
     )
   }
