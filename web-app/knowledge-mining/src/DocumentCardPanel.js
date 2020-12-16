@@ -33,7 +33,7 @@ class DocumentCardPanel extends Component {
           color={"#1f03bdb"}
       /></div>);
     } else if (!data) {
-      result = (<div>Nie znaleziono pasujących dokumentów</div>);
+      result = (<div className="not-found">Nie znaleziono pasujących dokumentów</div>);
     } else {
       result = (data.map((document) => 
         <DocumentCard key={document.location} data={document}/>

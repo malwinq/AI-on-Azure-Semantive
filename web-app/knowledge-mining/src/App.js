@@ -1,14 +1,15 @@
 import './App.css';
 import DocumentSearch from './DocumentSearch';
+import Typography from '@material-ui/core/Typography';
 
 function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <p>
+        <Typography variant="h3">
           Welcome in Knowledge Mining browser! 
-        </p>
-      <DocumentSearch/>
+        </Typography>
+        <DocumentSearch/>
       </header>
     </div>
   );
