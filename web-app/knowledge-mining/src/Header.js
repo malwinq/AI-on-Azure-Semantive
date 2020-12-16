@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { withStyles } from '@material-ui/core/styles';
-import { Typography, AppBar, Toolbar, Menu, MenuItem, ListItemIcon, ListItemText, Button, Modal } from '@material-ui/core';
+import { Typography, AppBar, Toolbar, Menu, MenuItem, ListItemIcon, ListItemText, 
+    Button, Dialog, DialogTitle, DialogContent, DialogContentText } from '@material-ui/core';
 import InfoIcon from '@material-ui/icons/Info';
 import HelpIcon from '@material-ui/icons/Help';
 import SendIcon from '@material-ui/icons/Send';
@@ -70,29 +71,42 @@ class Header extends Component {
                         </Typography>
                     </Toolbar>
                 </AppBar>
-                <Modal
+                <Dialog
                     open={this.state.modalHelpOpen}
                     onClose={this.closeHelp}
                 >
-                    <div>
-                    This application aims to search for custom properties of unstructured documents. Try to type keywords
-                    or document name or type of document and then the results should be displayed. You can view the detailed
-                    info by clicking expand button and download the document by clicking 'Download'.
-                    </div>
-                </Modal>
-                <Modal
+                    <DialogTitle>Help</DialogTitle>
+                    <DialogContent>
+                        <DialogContentText>
+                            This application aims to search for custom properties of unstructured documents. Try to type keywords
+                            or document name or type of document and then the results should be displayed. You can view the detailed
+                            info by clicking expand button and download the document by clicking 'Download'.
+                        </DialogContentText>
+                </DialogContent>
+                </Dialog>
+                <Dialog
                     open={this.state.modalInfoOpen}
                     onClose={this.closeInfo}
                 >
-                    This application aims to search for custom properties of unstructured documents. It's a project made by Warsaw
-                    University of Technology students with cooperation with Semantive company for subject AI on Azure.
-                </Modal>
-                <Modal
+                    <DialogTitle>Info</DialogTitle>
+                    <DialogContent>
+                        <DialogContentText>
+                            This application aims to search for custom properties of unstructured documents. It's a project made by Warsaw
+                            University of Technology students with cooperation with Semantive company for subject AI on Azure.
+                        </DialogContentText>
+                    </DialogContent>
+                </Dialog>
+                <Dialog
                     open={this.state.modalFeedbackOpen}
                     onClose={this.closeFeedback}
                 >
-                    You can contact us by email: malwina.kubas@gmail.com. We will appreciate any feedback, thank you!
-                </Modal>
+                    <DialogTitle>Feedback</DialogTitle>
+                    <DialogContent>
+                        <DialogContentText>
+                            You can contact us by email: malwina.kubas@gmail.com. We will appreciate any feedback, thank you!
+                        </DialogContentText>
+                </DialogContent>
+                </Dialog>
                 <Button
                     className={classes.menuButton}
                     aria-controls="customized-menu"
