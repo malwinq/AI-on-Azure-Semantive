@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import Select from 'react-select';
 import { getKeywords, getOptions } from './functions';
 import './DocumentSearch.css';
 import DocumentCard from './DocumentCard';
+import TextField from '@material-ui/core/TextField';
  
 class DocumentSearch extends Component {
   state = {
@@ -27,14 +27,9 @@ class DocumentSearch extends Component {
   render () { 
     return (
         <div>
-            <div className="document-search">
-                <Select 
-                    options={this.state.options} 
-                    name="documents" 
-                    placeholder="Choose your language"
-                    onChange={this.handleChange} 
-                />
-            </div>
+            <form noValidate autoComplete="off" className="document-search">
+              <TextField id="outline-basic" label="Search for documents" variant="outlined"/>
+            </form>
             {this.state.document && <DocumentCard documentName={this.state.document} keywords={this.state.keywords}/>}
         </div>
     )
