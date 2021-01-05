@@ -34,7 +34,7 @@ class DocumentCardPanel extends Component {
       /></div>);
     } else if (!data) {
       result = (<div style={{padding: '50px', fontSize: '18px'}}>
-          Nie znaleziono pasujących dokumentów
+          Given phrase doesn't match any documents
         </div>);
     } else {
       result = (<div>{data.map((document) => 
