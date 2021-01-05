@@ -12,7 +12,8 @@ const styles = {
     width: 350,
     marginTop: 40,
     marginLeft: 10,
-    display: 'inline-block'
+    display: 'inline-block',
+    verticalAlign: 'top'
   },
   media: {
     height: 0,
