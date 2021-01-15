@@ -52,8 +52,9 @@ Use Case: przeszukiwanie rządowych dokumentów i raportów statystycznych.
 
 ### Podział obowiązków
 
-- Michał: preprocessing danych
 - Michał: utworzenie Custom Skilli
+- Michał: Form Recognizer
+- Michał: Cognitive Services
 - Piotr: Cognitive Search
 - Piotr/Malwina: integracja z API Management
 - Malwina: utworzenie UI wyszukiwarki
