@@ -39,7 +39,6 @@ class DocumentCardPanel extends Component {
           style={{padding: '10%'}}
       /></div>);
     } else if (!data) {
-      console.log(data);
       result = (<div style={{padding: '50px', fontSize: '18px'}}>
           Given phrase doesn't match any documents
         </div>);
