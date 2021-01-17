@@ -36,3 +36,12 @@ If file extention is:
 - '.pdf' - the tag 'Complete Raport' is assigned
 - .etc
 
+
+
+
+
+## Important
+
+- Add JSON into skill set
+- Add field into index
+- Add filed into indexer in JSON (remambair about correct context)
