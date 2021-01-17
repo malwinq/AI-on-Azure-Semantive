@@ -4,24 +4,6 @@
   "name": "semantive-azureblob-skillset",
   "description": "Skillset created from the portal. skillsetName: semantive-azureblob-skillset; contentField: merged_content; enrichmentGranularity: document; knowledgeStoreStorageAccount: ;",
   "skills": [
-//    {
-//      "@odata.type": "#Microsoft.Skills.Text.EntityRecognitionSkill",
-//      "context": "/document",
-//      "categories": [ "Organization" ],
-//      "defaultLanguageCode": "en",
-//      "inputs": [
-//        {
-//          "name": "text",
-//          "source": "/document/content"
-//        }
-//      ],
-//      "outputs": [
-//        {
-//          "name": "organizations",
-//          "targetName": "organizations"
-//        }
-//      ]
-//    },
     {
       "@odata.type": "#Microsoft.Skills.Text.EntityRecognitionSkill",
       "name": "#1",
@@ -184,6 +166,38 @@
           "targetName": "layoutText"
         }
       ]
+    },
+    {
+      "@odata.type": "#Microsoft.Skills.Custom.WebApiSkill",
+      "name": "#9",
+      "description": "File names and ext analysis",
+      "context": "/document",
+      "uri": "https://customskillappweu.azurewebsites.net/api/CustomSkill2_HttpTrig?code=u3hDV/7NtFXuzHwZtnb0D8rPae95fJXM7wVb4c1qDJp2wP3peyZAtg==",
+      "httpMethod": "POST",
+      "timeout": "PT30S",
+      "batchSize": 1,
+      "degreeOfParallelism": 1,
+      "inputs": [
+        {
+          "name": "file_ext",
+          "source": "/document/metadata_storage_file_extension"
+        },
+        {
+          "name": "file_name",
+          "source": "/document/metadata_storage_name"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "file_type",
+          "targetName": "file_type"
+        },
+        {
+          "name": "name_type",
+          "targetName": "name_type"
+        }
+      ],
+      "httpHeaders": {}
     }
   ],
   "cognitiveServices": {
