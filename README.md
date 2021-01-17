@@ -55,7 +55,7 @@ Use Case: przeszukiwanie rządowych dokumentów i raportów statystycznych.
 - Michał: utworzenie Custom Skilli
 - Michał: Form Recognizer
 - Michał: Cognitive Services
-- Piotr: Cognitive Search
+- Piotr: Cognitive Search(+ Cognitive Services) z Blob Storage
 - Piotr/Malwina: integracja z API Management
 - Malwina: utworzenie UI wyszukiwarki
 - Piotr/Malwina: autoryzacja użytkowników
