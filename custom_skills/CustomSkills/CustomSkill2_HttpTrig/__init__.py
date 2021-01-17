@@ -85,7 +85,7 @@ def transform_value(value):
         # File naming scheme tags for basic filtering of content
         if EU in file_name:
             name_type = "Europe"
-        elif US in file_name:
+        elif USA in file_name:
             name_type  = "USA"
         else:
             name_type = "Undefined"
