@@ -1,125 +1,59 @@
 {
-  "@odata.context": "https://semantive-azure-search.search.windows.net/indexes('semantive-azureblob-index')/$metadata#docs(*)",
-  "value": [
-    {
-      "@search.score": 0.44314402,
-      "metadata_storage_content_type": "application/pdf",
-      "metadata_storage_last_modified": "2021-01-04T01:49:52Z",
-      "metadata_storage_name": "us-025.pdf",
-      "metadata_storage_path": "aHR0cHM6Ly9zZW1hbnRpdmVkYXRhYmFzZS5ibG9iLmNvcmUud2luZG93cy5uZXQvc2VtYW50aXZlLWNvbnRhaW5lci9kb2N1bWVudHMvdXMtMDI1LnBkZg2",
-      "metadata_storage_file_extension": ".pdf",
-      "metadata_language": "en",
-      "locations": [
-        "Boston",
-        "Atlanta",
-        "Dallas",
-        "San Francisco"
-      ],
-      "organizations": [
-        "Pesticides Industry Sales And Usage",
-        "U.S. EPA Regional",
-        "U.S. Annual Volume of Pesticide Usage",
-        "a.i.\nHerbicides",
-        "EPA/OPP/BEAD",
-        "Pesticide Usage"
-      ],
-      "keyphrases": [
-        "Annual Volume of Pesticide Usage",
-        "Total",
-        "Pesticides Industry Sales",
-        "Type",
-        "Certified Pesticide Applicators",
-        "Table",
-        "Year",
-        "Millions of",
-        "REGIONS",
-        "EPA Regional Map",
-        "BEAD estimates",
-        "OPP",
-        "SOURCE",
-        "New York",
-        "San Francisco",
-        "Economic Sectors",
-        "Boston",
-        "Philadelphia",
-        "Atlanta",
-        "Kansas",
-        "City",
-        "Dallas",
-        "Denver",
-        "Seattle",
-        "Herbicides",
-        "Insecticides",
-        "Fungicides",
-        "Chems"
-      ],
-      "people": [],
-      "pii_entities": [
+    "@odata.context": "https://semantive-azure-search.search.windows.net/indexes('semantive-azureblob-index')/$metadata#docs(*)",
+    "value": [
         {
-          "text": "557 567 564",
-          "type": "Portugal Tax Identification Number",
-          "subtype": null,
-          "offset": 729,
-          "length": 11,
-          "score": 0.65
-        },
-        {
-          "text": "546 554 527",
-          "type": "Australian Company Number",
-          "subtype": null,
-          "offset": 741,
-          "length": 11,
-          "score": 0.65
-        },
-        {
-          "text": "155 149 152",
-          "type": "Australian Company Number",
-          "subtype": null,
-          "offset": 925,
-          "length": 11,
-          "score": 0.65
-        },
-        {
-          "text": "138 138 133",
-          "type": "Portugal Tax Identification Number",
-          "subtype": null,
-          "offset": 949,
-          "length": 11,
-          "score": 0.65
-        },
-        {
-          "text": "137 154 173",
-          "type": "Australian Company Number",
-          "subtype": null,
-          "offset": 961,
-          "length": 11,
-          "score": 0.65
-        },
-        {
-          "text": "226 246 248",
-          "type": "Portugal Tax Identification Number",
-          "subtype": null,
-          "offset": 1054,
-          "length": 11,
-          "score": 0.65
-        },
-        {
-          "text": "1487 1442 1430",
-          "type": "Japanese My Number Personal",
-          "subtype": null,
-          "offset": 1081,
-          "length": 14,
-          "score": 0.65
-        },
-        {
-          "text": "EPA/OPP/BEAD",
-          "type": "Organization",
-          "subtype": null,
-          "offset": 1175,
-          "length": 12,
-          "score": 0.82
+            "@search.score": 18.072569,
+            "metadata_storage_content_type": "application/pdf",
+            "metadata_storage_last_modified": "2021-01-17T14:35:18Z",
+            "metadata_storage_name": "us-001.pdf",
+            "metadata_storage_path": "aHR0cHM6Ly9zZW1hbnRpdmVkYXRhYmFzZS5ibG9iLmNvcmUud2luZG93cy5uZXQvc2VtYW50aXZlLWNvbnRhaW5lci9kb2N1bWVudHMvdXMtMDAxLnBkZg2",
+            "metadata_storage_file_extension": ".pdf",
+            "metadata_language": "en",
+            "locations": [],
+            "organizations": [
+                "Current Receipts\nCurrent"
+            ],
+            "keyphrases": [
+                "Current transfer receipts",
+                "Current Expenditures",
+                "Current tax receipts",
+                "Total current receipts",
+                "Personal current taxes",
+                "Income receipts",
+                "Current Transfer payments",
+                "Current surplus of government enterprises",
+                "NATIONAL INCOME",
+                "corporate income",
+                "FEDERAL FISCAL YEARS",
+                "Government social benefits",
+                "FEDERAL TRANSACTIONS",
+                "social insurance",
+                "Consumption expenditures",
+                "PRODUCT ACCOUNTS",
+                "HISTORICAL TABLES",
+                "BUDGET",
+                "Contributions",
+                "production",
+                "imports",
+                "rest",
+                "world",
+                "assets",
+                "billions of dollars",
+                "Nondefense",
+                "Grants",
+                "State",
+                "local governments",
+                "Wage disbursements",
+                "accruals",
+                "Total current expenditures",
+                "Net Federal Government",
+                "payments",
+                "Subsidies"
+            ],
+            "people": [],
+            "file_type": "Complete Raport",
+            "name_type": "USA",
+            "pii_entities": []
         }
       ]
-    }
-  ]
 }
