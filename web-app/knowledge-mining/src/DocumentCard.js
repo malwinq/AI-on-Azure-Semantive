@@ -4,6 +4,7 @@ import { Card, CardHeader, CardContent, CardActions, Collapse, Avatar,
 import { getFile } from './functions';
 // import CardMedia from '@material-ui/core/CardMedia';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
+import ExpandLessIcon from '@material-ui/icons/ExpandLess';
 import { withStyles } from '@material-ui/core/styles';
 
 const styles = {
@@ -39,12 +40,18 @@ const styles = {
 
 class DocumentCard extends Component {
   state = {
-      expanded: false
+      expanded: false,
+      expandedKeyphrases: false
   }
 
   handleExpandClick = () => {
     const expand = this.state.expanded;
     this.setState({ expanded: !expand });
+  };
+
+  handleExpandKeyphrasesClick = () => {
+    const expand = this.state.expandedKeyphrases;
+    this.setState({ expandedKeyphrases: !expand });
   };
 
   downloadFile = (fileURL, fileName) => {
@@ -63,6 +70,7 @@ class DocumentCard extends Component {
 
   render() {
     const expanded = this.state.expanded;
+    const expandedKeyphrases = this.state.expandedKeyphrases;
     const { classes } = this.props;
     const { title, keyphrases, metadata_storage_path,
         metadata_storage_name, metadata_storage_file_extension,
@@ -81,9 +89,22 @@ class DocumentCard extends Component {
           />
           <CardContent>
             <Typography variant="body2" component="p">
-              Keywords: {keyphrases.map((word, index) => (
-                <div className={classes.keyphrases}>{keyphrases.length-1 !== index ? word + ',' : word} </div>))}
+              Keywords: {keyphrases.slice(0, 20).map((word, index) => (
+                <div className={classes.keyphrases}>{keyphrases.slice(0, 20).length-1 !== index ? word + ',' : word} </div>))}
             </Typography>
+            <Collapse in={expandedKeyphrases} timeout="auto" unmountOnExit>
+              <Typography variant="body2" component="p">
+                {keyphrases.slice(20, keyphrases.length).map((word, index) => (
+                <div className={classes.keyphrases}>{keyphrases.slice(20, keyphrases.length).length-1 !== index ? word + ',' : word} </div>))}
+              </Typography>
+            </Collapse>
+            <IconButton
+              className={classes.expand}
+              onClick={this.handleExpandKeyphrasesClick}
+              aria-expanded={expandedKeyphrases}
+              aria-label="show more">
+                  { expandedKeyphrases ? (<ExpandLessIcon/>) : (<ExpandMoreIcon/>) }
+            </IconButton>
           </CardContent>
           <CardActions disableSpacing>
             <Button size="small" color="primary" onClick={() => this.downloadFile(atob(metadata_storage_path), metadata_storage_name)}>
