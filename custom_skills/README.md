@@ -20,3 +20,19 @@ Up to this point the task was pretty straightforward and consisted mostly of fol
 4. Log into new project
 5. Create Http triggered function
 
+## First skill
+
+Very often the naming scheme and the extentions of the files are important for the search results - considering this, the custom skill was created, that allows for filtering of the files via the names parts - name_tags and file extentions.
+
+If file contains:
+
+- 'eu' - the tag with 'European Union' is assigned
+- 'us' - tag 'USA' is asogned 
+- there can be more than one tag assigned to the document
+
+If file extention is:
+
+- '.jpeg', '.jpg', '.bmp', '.png' - the tag 'Image'  is assigned
+- '.pdf' - the tag 'Complete Raport' is assigned
+- .etc
+
