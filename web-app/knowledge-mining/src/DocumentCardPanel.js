@@ -32,7 +32,7 @@ class DocumentCardPanel extends Component {
     const { data, isLoaded } = this.state;
     let result;
     if (!isLoaded) {
-      result = (<div className="loading-icon">
+      result = (<div style={{padding: '50px'}}>
         <ClipLoader
           size={70}
           color={"#1b19b6"}
