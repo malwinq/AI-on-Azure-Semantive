@@ -62,13 +62,13 @@ Use Case: przeszukiwanie rządowych dokumentów i raportów statystycznych.
 
 ### Harmonogram
 
-Pierwszy kamień milowy - 24.12
+Pierwszy kamień milowy - 18.01
 * pierwsza ekstrakcja danych - Michał
 * działająca baza danych zintegrowana z searchem - Piotr
 * proste wyszukiwanie + UI - Malwina
 
 
-Drugi kamień milowy - 18.01
+Drugi kamień milowy - 01.02
 * ekstrakcja danych w pełni dopasowana do naszych potrzeb 
 * autoryzacja użytkowników
 * ładny, działający UI
