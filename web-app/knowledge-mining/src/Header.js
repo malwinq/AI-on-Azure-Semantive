@@ -13,9 +13,10 @@ const styles = {
   },
   menuButton: {
     position: 'absolute',
-    bottom: '3%',
-    left: '1%',
-    backgroundColor: '#1b19b6'
+    top: '1.5%',
+    right: '1%',
+    backgroundColor: '#ffffff',
+    color: '#1b19b6'
   }
 }
 
