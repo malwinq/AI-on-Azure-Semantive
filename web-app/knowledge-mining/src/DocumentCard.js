@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { Card, CardHeader, CardContent, CardActions, Collapse, Avatar,
   IconButton, Typography, Button } from '@material-ui/core';
 import { getFile } from './functions';
-// import CardMedia from '@material-ui/core/CardMedia';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import ExpandLessIcon from '@material-ui/icons/ExpandLess';
 import { withStyles } from '@material-ui/core/styles';
@@ -12,10 +11,12 @@ const styles = {
     borderStyle: 'solid',
     borderColor: '#1b19b6',
     width: 350,
+    minHeight: '22vw',
     marginTop: 40,
     marginLeft: 10,
     display: 'inline-block',
-    verticalAlign: 'top'
+    verticalAlign: 'top',
+    position: 'relative'
   },
   media: {
     height: 0,
@@ -24,6 +25,9 @@ const styles = {
   expand: {
     transform: 'rotate(0deg)',
     marginLeft: 'auto',
+    position: 'absolute',
+    bottom: '18px',
+    right: '20px'
   },
   expandOpen: {
     transform: 'rotate(180deg)',
@@ -35,6 +39,10 @@ const styles = {
   keyphrases: {
     display: 'inline-block',
     marginLeft: 7,
+  },
+  download: {
+    position: 'absolute',
+    bottom: '20px'
   }
 }
 
@@ -68,38 +76,42 @@ class DocumentCard extends Component {
     })
   };
 
+  getAvatarTitle = (name) => {
+    return name.split('.')[name.split('.').length-2].substring(0,2).toUpperCase();
+  };
+
   render() {
     const expanded = this.state.expanded;
     const expandedKeyphrases = this.state.expandedKeyphrases;
     const { classes } = this.props;
-    const { title, keyphrases, metadata_storage_path,
+    const { keyphrases, metadata_storage_path,
         metadata_storage_name, metadata_storage_file_extension,
         metadata_storage_last_modified, locations,
         organizations, people, metadata_language } = this.props.data;
     return (
         <Card className={classes.root}>
           <CardHeader
-            // avatar={
-            //   <Avatar aria-label="recipe" className={classes.avatar}>
-            //     {institution}
-            //   </Avatar>
-            // }
+            avatar={
+              <Avatar aria-label="recipe" className={classes.avatar}>
+                {this.getAvatarTitle(metadata_storage_name)}
+              </Avatar>
+            }
             title={metadata_storage_name.split('.')[metadata_storage_name.split('.').length-2]}
             subheader={new Date(metadata_storage_last_modified).toLocaleDateString()}
           />
           <CardContent>
             <Typography variant="body2" component="p">
-              Keywords: {keyphrases.slice(0, 20).map((word, index) => (
+              Keywords: {keyphrases.slice(0, 10).map((word, index) => (
                 <div className={classes.keyphrases}>{keyphrases.slice(0, 20).length-1 !== index ? word + ',' : word} </div>))}
             </Typography>
             <Collapse in={expandedKeyphrases} timeout="auto" unmountOnExit>
               <Typography variant="body2" component="p">
-                {keyphrases.slice(20, keyphrases.length).map((word, index) => (
+                {keyphrases.slice(10, keyphrases.length < 40 ? keyphrases.length : 40).map((word, index) => (
                 <div className={classes.keyphrases}>{keyphrases.slice(20, keyphrases.length).length-1 !== index ? word + ',' : word} </div>))}
               </Typography>
             </Collapse>
             <IconButton
-              className={classes.expand}
+              // className={classes.expand}
               onClick={this.handleExpandKeyphrasesClick}
               aria-expanded={expandedKeyphrases}
               aria-label="show more">
@@ -107,7 +119,8 @@ class DocumentCard extends Component {
             </IconButton>
           </CardContent>
           <CardActions disableSpacing>
-            <Button size="small" color="primary" onClick={() => this.downloadFile(atob(metadata_storage_path), metadata_storage_name)}>
+            <Button className={classes.download} size="small" color="primary" 
+              onClick={() => this.downloadFile(atob(metadata_storage_path), metadata_storage_name)}>
               Download
             </Button>
             <IconButton
