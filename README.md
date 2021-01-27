@@ -8,8 +8,6 @@ Projekt zewnętrzny dla firmy Semantive realizowany w ramach przedmiotu na PW
 * Michał Bogacz
 * Piotr Szubert
 
-Trello: https://trello.com/b/Ta5WQgHy/semantive
-
 ## Opis projektu
 
 Wiele organizacji boryka się z problemem zarządzania wiedzą w organizacji. O ile dane dostępne w hurtowniach danych są zrozumiałe dla analityków biznesowych, to dane zamknięte w dokumentach, prezentacjach, obrazach i innych danych unstructured często nie są zarządzane, a wiedza na ich temat jest zamknięta w silosach organizacyjnych. Duża część czasu pracowników jest stracona na manualne, czasochłonne wyszukiwanie właściwego dokumentu. Celem projektu jest zaimplementowanie rozwiązania, które robi ekstrakcję wiedzy z danych Unstructured. Zalecane jest skorzystanie z Cognitive Search Services i przygotowanie Custom Skills, które wyciągają dodatkowe metadane z dokumentów oprócz już dostępnych Skill’i. Rozwiązanie powinno być dostępne jako aplikacja typu Power App, do której można wgrać dowolny dokument i uzyskać metadane. Za konkretny przykład może posłużyć wykrywanie marek (brand) z obrazów lub lokalizowanie (geolocation) dokumentów w oparciu o treści w nich zawarte. Oczekuje się, że studenci przetestują takie rozwiązanie w oparciu o dostępne otwarte danei ustalą konkretny use-case, który wykorzystuje co najmniej 2 Custom Skille. 
@@ -46,15 +44,7 @@ Zbiór dokumentów zawierających raporty Unii Europejskiej i rządu USA: http:/
 
 Powyższy zbiór dokumentów został wybrany z uwagi na dużą różnorodność danych oraz formatów przekazywania informacji (opisy słowne, tabelaryczne, numeryczne, grafy oraz przebiegi czasowe). Dzięki takiemu szerokiemu spektrum można przetestować duży zakres różnych typów metadanych używanych w silniku wyszukiwania.
 
-Wszystkie pliki dokumentów umieszczone są w formie plików pdf. jest to bardzo wygodne ze względu na dużą dostępność narzędzi pozwalających w łatwy sposób analizować zawartość plików w taki formacie.
-
-Informacje pozyskiwane z dokumentów:
-
-// TODO - Michał opis Custom Skilli
-
-1.
-
-2. 
+Szczegóły dotyczące tworzenia oraz typów użytych Custom Skills, znajdują się w folderze *custom_skills*.
 
 ## Aplikacja webowa
 
