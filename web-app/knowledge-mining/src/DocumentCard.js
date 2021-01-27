@@ -21,7 +21,7 @@ const styles = {
     borderStyle: 'solid',
     borderColor: '#1b19b6',
     width: 350,
-    minHeight: '25vw',
+    minHeight: '26vw',
     marginTop: 30,
     marginLeft: 30,
     marginBottom: 30,

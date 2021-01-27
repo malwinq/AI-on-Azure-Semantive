@@ -2,19 +2,24 @@ import React, { Component } from 'react';
 import DocumentCard from './DocumentCard';
 import { getDocuments } from './functions';
 import ClipLoader from 'react-spinners/ClipLoader';
- 
+
 class DocumentCardPanel extends Component {
   state = {
-    data: null
+    data: null,
+    filterKeywordsExpanded: false,
+    isLoaded: true,
+    filters: {
+      keywords: [],
+    }
   };
 
   componentDidMount() {
     this.fetchDocumentsData();
-  }
+  };
 
   componentWillReceiveProps() {
     this.fetchDocumentsData();
-  }
+  };
 
   fetchDocumentsData = () => {
     this.setState({ isLoaded: false });
@@ -23,10 +28,9 @@ class DocumentCardPanel extends Component {
         this.setState({ data: res.data.value, isLoaded: true });
       },
       (err) => {
-        //TODO error handling
         console.log(err);
       });
-  }
+  };
  
   render () { 
     const { data, isLoaded } = this.state;
@@ -38,11 +42,11 @@ class DocumentCardPanel extends Component {
           color={"#1b19b6"}
           style={{padding: '10%'}}
       /></div>);
-    } else if (!data) {
-      result = (<div style={{padding: '50px', fontSize: '18px'}}>
+    } else if (data && data.length === 0) {
+      result = (<div style={{padding: '40px', fontSize: '18px'}}>
           Given phrase doesn't match any documents
         </div>);
-    } else {
+    } else if (data) {
       result = (<div>{data.map((document) =>
         <DocumentCard key={document.metadata_storage_path} data={document}/>)}</div>
       );
