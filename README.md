@@ -31,7 +31,16 @@ dostęp będzie ograniczony poprzez Active Directory.
 
 Stack: Node, JS, React
 
-## Dataset
+Funkcjonalność:
+* 2 dopasowane do naszych potrzeb Custom Skille
+* wyszukiwanie dokumentów w aplikacji internetowej
+* wyświetlanie informacji o znalezionych dokumentach (keywords, language, locations, organizations, people)
+* możliwość pobierania dokumentów
+* autoryzacja użytkowników
+
+## Dataset + Custom Skills
+
+Use Case: przeszukiwanie rządowych dokumentów i raportów statystycznych.
 
 Zbiór dokumentów zawierających raporty Unii Europejskiej i rządu USA: http://www.tamirhassan.com/html/dataset.html
 
@@ -41,50 +50,65 @@ Wszystkie pliki dokumentów umieszczone są w formie plików pdf. jest to bardzo
 
 Informacje pozyskiwane z dokumentów:
 
-1. Form Recognizer - jedną ze składowych cech charakterystycznych przypisanych do dokumentów będą podstawowe informacje zawarte w dokumencie. Forma tych informacji musi być prosta, więc tym narzędziem wydobędziemy informacje o adresach, osobach wspomnianych w dokumencie czy bezpośredniej zawartości tabel.
-2. Cognitive Services:
-   - Cognitive Search - wyodrębnianie kluczowych fraz oraz wykrywanie lokalizacji, osób i organizacji
-3. Custom Skills:
-   - Znalezienie słów kluczowych - tytuł oraz opis na zdjęciach oraz grafach 
-   - Funkcje identyfikujące różne słowa kluczowe poza tymi dostarczanymi przez Cognitive Search
+// TODO - Michał opis Custom Skilli
 
-Use Case: przeszukiwanie rządowych dokumentów i raportów statystycznych.
+1.
 
-### Podział obowiązków
-
-- Michał: utworzenie Custom Skilli
-- Michał: Form Recognizer
-- Michał: Cognitive Services
-- Piotr: Cognitive Search(+ Cognitive Services) z Blob Storage
-- Piotr/Malwina: integracja z API Management
-- Malwina: utworzenie UI wyszukiwarki
-- Piotr/Malwina: autoryzacja użytkowników
-
-### Harmonogram
-
-Pierwszy kamień milowy - 24.12
-* pierwsza ekstrakcja danych - Michał
-* działająca baza danych zintegrowana z searchem - Piotr
-* proste wyszukiwanie + UI - Malwina
-
-
-Drugi kamień milowy - 18.01
-* ekstrakcja danych w pełni dopasowana do naszych potrzeb 
-* autoryzacja użytkowników
-* ładny, działający UI
+2. 
 
 ## Aplikacja webowa
 
-Aplikacja została utworzona w serwisie Web App. Stack technologiczny to Node.js (v12.18) i React.
+Link: https://knowledge-mining-browser.azurewebsites.net/
+
+Aplikacja została utworzona w serwisie Web App. Aby nie wystawiać publicznie klucza autoryzującego do Cognitive Search API,
+użyty został serwis API Management.
+
+Stack technologiczny to Node.js (v12.18) i React. Pełny kod aplikacji dostępny jest w folderze 'web-app'.
+
+Biblioteki:
+* material-ui v4.11.2
+* axios v0.21.0
+* babel v7.12.10
+* react-spinner v4.0.1
+
+![Image](images/web-app.png)
+
+![Image](images/document-card.png)
 
 Aby opublikować aplikację na Azure, użyliśmy dodatku Azure App Service w VS Code. 
 
 Do utworzenia szkieletu aplikacji wykorzystaliśmy polecenie ```npx create-react-app knowledge-mining```.
-
-Pełny kod aplikacji dostępny jest w folderze 'web-app'.
 
 Lokalne uruchomienie aplikacji:
 
 ```npm install```
 
 ```npm start```
+
+## Przechowywanie danych + Cognitive Search
+
+Wykorzystana baza danych: Azure Blob Storage.
+
+// TODO Piotrek - krótki opis jak przechowujemy dane i ew. coś co searchu
+
+## Podział obowiązków
+
+- Michał: utworzenie Custom Skills
+- Malwina: UI wyszukiwarki
+- Piotr: zapis danych do bazy, pobieranie plików
+- Piotr+Michał: Cognitive Search
+- Malwina+Piotr: integracja apki z searchem
+- Piotr: API Management
+- Malwina: autoryzacja użytkowników
+
+## Harmonogram
+
+Pierwszy kamień milowy - 18.01
+* pierwsza ekstrakcja danych, 1 Custom Skill - Michał
+* działająca baza danych zintegrowana z searchem - Piotr
+* proste wyszukiwanie + UI - Malwina
+
+Drugi kamień milowy - 29.01
+* drugi Custom Skill - Michał
+* autoryzacja użytkowników, dopracowanie UI - Malwina
+* pobieranie dokumentów, pełna integracja - Piotr

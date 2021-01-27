@@ -1,0 +1,26 @@
+{
+        "@odata.type": "#Microsoft.Skills.Custom.WebApiSkill",
+        "description": "File names and ext analysis",
+        "uri": "https://customskillsapp.azurewebsites.net/api/CustomSkill2_HttpTrig?code=Gy1s15oebe2JRZlIUIpuxwKKgpS9mwa2hqe3W1TGXTYSv6Ehn28mIA==",        
+          "context": "/document/merged_content",
+          "inputs": [
+            {
+              "name": "file_ext",
+              "source": "/document/metadata_storage_file_extension"
+            },
+            {
+              "name": "file_name",
+              "source": "/document/metadata_storage_name"
+            },
+          ],
+          "outputs": [
+            {
+              "name": "file_type",
+              "targetName": "tags_file_type"
+            },
+			{
+			  "name": "name_type",
+              "targetName": "tags_name_type"
+			}
+          ]
+      }
