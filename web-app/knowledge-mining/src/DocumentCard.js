@@ -14,6 +14,7 @@ import AccountBalanceIcon from '@material-ui/icons/AccountBalance';
 import PersonIcon from '@material-ui/icons/Person';
 import Chip from '@material-ui/core/Chip';
 import DescriptionIcon from '@material-ui/icons/Description';
+import AssessmentIcon from '@material-ui/icons/Assessment';
 
 const styles = {
   root: {
@@ -101,7 +102,8 @@ class DocumentCard extends Component {
     const { keyphrases, metadata_storage_path,
         metadata_storage_name, metadata_storage_file_extension,
         metadata_storage_last_modified, locations,
-        organizations, people, metadata_language } = this.props.data;
+        organizations, people, metadata_language, file_type } = this.props.data;
+    console.log(this.props.data);
     return (
         <Card className={classes.root}>
           <CardHeader
@@ -162,11 +164,18 @@ class DocumentCard extends Component {
           <Collapse in={expanded} timeout="auto" unmountOnExit className={classes.collapse}>
             <CardContent>
               <Typography paragraph variant="subtitle2">
-                <b>{`Data type `}</b>
+                <b>{`Data format `}</b>
                 <Badge badgeContent={1} color="primary">
                   <AssignmentIcon/>
                 </Badge>
-                <div>{metadata_storage_file_extension === '.pdf' ? 'PDF' : metadata_storage_file_extension}</div>
+                <div>{metadata_storage_file_extension.slice(1, metadata_storage_file_extension.length).toUpperCase()}</div>
+              </Typography>
+              <Typography paragraph variant="subtitle2">
+                <b>{`File type `}</b>
+                <Badge badgeContent={1} color="primary">
+                  <AssessmentIcon/>
+                </Badge>
+                <div>{file_type}</div>
               </Typography>
               <Typography paragraph variant="subtitle2">
                 <b>{`Language `}</b>
