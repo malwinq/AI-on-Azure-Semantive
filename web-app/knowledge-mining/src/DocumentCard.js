@@ -232,9 +232,9 @@ class DocumentCard extends Component {
       result = null
     }
     return (
-      <div>
+      <span>
         {result}
-      </div>
+      </span>
       );
   }
 }
