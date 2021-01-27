@@ -27,8 +27,8 @@ const styles = {
 class DocumentSearch extends Component {
   state = {
       input: null,
-      filterName: [],
-      filterFile: []
+      filterName: ["USA", "Europe"],
+      filterFile: ["Image", "Complete Raport", "Editable Raport", "Calculations", "Undefined"]
   };
 
   handleChange = (event) => {
@@ -51,7 +51,6 @@ class DocumentSearch extends Component {
         this.setState({ filterName: filter });
       }
     }
-    console.log(this.state.filterName);
   };
 
   handleFilterFileChange = (event) => {
@@ -68,12 +67,11 @@ class DocumentSearch extends Component {
         this.setState({ filterFile: filter });
       }
     }
-    console.log(this.state.filterFile);
   };
  
   render () { 
     const { classes } = this.props;
-    const { filterName, filterFile } = this.state;
+    const { filterName, filterFile, input } = this.state;
     return (
         <div>
             <form noValidate autoComplete="off">
@@ -123,7 +121,7 @@ class DocumentSearch extends Component {
                 label="Europe"
               />
             </div>
-            {this.state.input && <DocumentCardPanel input={this.state.input}/>}
+            {this.state.input && <DocumentCardPanel input={input} filterName={filterName} filterFile={filterFile}/>}
         </div>
     )
   }

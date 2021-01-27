@@ -98,13 +98,14 @@ class DocumentCard extends Component {
   render() {
     const expanded = this.state.expanded;
     const expandedKeyphrases = this.state.expandedKeyphrases;
-    const { classes } = this.props;
+    const { classes, filterName, filterFile } = this.props;
     const { keyphrases, metadata_storage_path,
         metadata_storage_name, metadata_storage_file_extension,
         metadata_storage_last_modified, locations,
-        organizations, people, metadata_language, file_type } = this.props.data;
-    console.log(this.props.data);
-    return (
+        organizations, people, metadata_language, file_type, name_type } = this.props.data;
+    let result;
+    if (filterName.includes(name_type) && filterFile.includes(file_type)) {
+      result = (
         <Card className={classes.root}>
           <CardHeader
             avatar={
@@ -133,7 +134,7 @@ class DocumentCard extends Component {
             </Typography>
             <Collapse in={expandedKeyphrases} timeout="auto" unmountOnExit>
               <Typography variant="body2">
-                <ul className={classes.keyphrases}>
+                <ul className={classes.bullet}>
                 {keyphrases.slice(10, keyphrases.length < 40 ? keyphrases.length : 40).map((word, index) => (
                   <li>{keyphrases.slice(20, keyphrases.length).length-1 !== index ? word + ',' : word} </li>))}
                 </ul>
@@ -226,6 +227,14 @@ class DocumentCard extends Component {
             </CardContent>
           </Collapse>
         </Card>
+      );
+    } else {
+      result = null
+    }
+    return (
+      <div>
+        {result}
+      </div>
       );
   }
 }

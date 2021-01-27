@@ -6,11 +6,7 @@ import ClipLoader from 'react-spinners/ClipLoader';
 class DocumentCardPanel extends Component {
   state = {
     data: null,
-    filterKeywordsExpanded: false,
-    isLoaded: true,
-    filters: {
-      keywords: [],
-    }
+    isLoaded: true
   };
 
   componentDidMount() {
@@ -21,9 +17,15 @@ class DocumentCardPanel extends Component {
     this.fetchDocumentsData();
   };
 
+  filterResults = (document) => {
+    const { filterName, filterFile } = this.props;
+    return filterFile.includes(document.file_type) && filterName.includes(document.name_type);
+  };
+
   fetchDocumentsData = () => {
+    const { input } = this.props;
     this.setState({ isLoaded: false });
-    getDocuments(this.props.input).then(
+    getDocuments(input).then(
       (res) => {
         this.setState({ data: res.data.value, isLoaded: true });
       },
@@ -34,6 +36,7 @@ class DocumentCardPanel extends Component {
  
   render () { 
     const { data, isLoaded } = this.state;
+    const { filterName, filterFile } = this.props;
     let result;
     if (!isLoaded) {
       result = (<div style={{padding: '50px'}}>
@@ -48,7 +51,7 @@ class DocumentCardPanel extends Component {
         </div>);
     } else if (data) {
       result = (<div>{data.map((document) =>
-        <DocumentCard key={document.metadata_storage_path} data={document}/>)}</div>
+        <DocumentCard key={document.metadata_storage_path} data={document} filterName={filterName} filterFile={filterFile}/>)}</div>
       );
     }
     return (
