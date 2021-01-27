@@ -309,8 +309,8 @@ def transform_value(value):
         locations = value['data']['locations']
 
         for element in organizations:
-        if element in COUNTRIES:
-        locations.append(COUNTRIES[element])
+            if element in COUNTRIES:
+                locations.append(COUNTRIES[element])
         
         locations_repaired = list(set(locations))
 
