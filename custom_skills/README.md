@@ -33,12 +33,16 @@ If file contains:
 If file extention is:
 
 - '.jpeg', '.jpg', '.bmp', '.png' - the tag 'Image'  is assigned
+
 - '.pdf' - the tag 'Complete Raport' is assigned
-- .etc
 
+- '.xls', '.xlsx' - 'Calculations'
 
+- '.doc', '.docx', '.odt' - 'Editable Raport'
 
+- different extentions - 'Undefined'
 
+  
 
 ## Important
 
