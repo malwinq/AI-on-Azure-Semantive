@@ -1,0 +1,59 @@
+{
+    "@odata.context": "https://semantive-azure-search.search.windows.net/indexes('semantive-azureblob-index')/$metadata#docs(*)",
+    "value": [
+        {
+            "@search.score": 18.072569,
+            "metadata_storage_content_type": "application/pdf",
+            "metadata_storage_last_modified": "2021-01-17T14:35:18Z",
+            "metadata_storage_name": "us-001.pdf",
+            "metadata_storage_path": "aHR0cHM6Ly9zZW1hbnRpdmVkYXRhYmFzZS5ibG9iLmNvcmUud2luZG93cy5uZXQvc2VtYW50aXZlLWNvbnRhaW5lci9kb2N1bWVudHMvdXMtMDAxLnBkZg2",
+            "metadata_storage_file_extension": ".pdf",
+            "metadata_language": "en",
+            "locations": [],
+            "organizations": [
+                "Current Receipts\nCurrent"
+            ],
+            "keyphrases": [
+                "Current transfer receipts",
+                "Current Expenditures",
+                "Current tax receipts",
+                "Total current receipts",
+                "Personal current taxes",
+                "Income receipts",
+                "Current Transfer payments",
+                "Current surplus of government enterprises",
+                "NATIONAL INCOME",
+                "corporate income",
+                "FEDERAL FISCAL YEARS",
+                "Government social benefits",
+                "FEDERAL TRANSACTIONS",
+                "social insurance",
+                "Consumption expenditures",
+                "PRODUCT ACCOUNTS",
+                "HISTORICAL TABLES",
+                "BUDGET",
+                "Contributions",
+                "production",
+                "imports",
+                "rest",
+                "world",
+                "assets",
+                "billions of dollars",
+                "Nondefense",
+                "Grants",
+                "State",
+                "local governments",
+                "Wage disbursements",
+                "accruals",
+                "Total current expenditures",
+                "Net Federal Government",
+                "payments",
+                "Subsidies"
+            ],
+            "people": [],
+            "file_type": "Complete Raport",
+            "name_type": "USA",
+            "pii_entities": []
+        }
+      ]
+}

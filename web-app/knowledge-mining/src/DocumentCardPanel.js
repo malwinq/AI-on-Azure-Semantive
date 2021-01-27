@@ -18,15 +18,21 @@ class DocumentCardPanel extends Component {
 
   fetchDocumentsData = () => {
     this.setState({ isLoaded: false });
-    const documents = getDocuments(this.props.input);
-    this.setState({ data: documents, isLoaded: true });
+    getDocuments(this.props.input).then(
+      (res) => {
+        this.setState({ data: res.data.value, isLoaded: true });
+      },
+      (err) => {
+        //TODO error handling
+        console.log(err);
+      });
   }
  
   render () { 
     const { data, isLoaded } = this.state;
     let result;
     if (!isLoaded) {
-      result = (<div className="loading-icon">
+      result = (<div style={{padding: '50px'}}>
         <ClipLoader
           size={70}
           color={"#1b19b6"}
@@ -37,8 +43,8 @@ class DocumentCardPanel extends Component {
           Given phrase doesn't match any documents
         </div>);
     } else {
-      result = (<div>{data.map((document) => 
-        <DocumentCard key={document.location} data={document}/>)}</div>
+      result = (<div>{data.map((document) =>
+        <DocumentCard key={document.metadata_storage_path} data={document}/>)}</div>
       );
     }
     return (
