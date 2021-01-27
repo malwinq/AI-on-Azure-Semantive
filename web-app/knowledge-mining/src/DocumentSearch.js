@@ -11,7 +11,8 @@ const styles = {
     marginLeft: 'auto',
     marginRight: 'auto',
     marginTop: '5%',
-    justifyContent: 'center'
+    justifyContent: 'center',
+    marginBottom: '3%'
   }
 }
 

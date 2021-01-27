@@ -21,8 +21,9 @@ const styles = {
     borderColor: '#1b19b6',
     width: 350,
     minHeight: '25vw',
-    marginTop: 40,
-    marginLeft: 10,
+    marginTop: 30,
+    marginLeft: 30,
+    marginBottom: 30,
     display: 'inline-block',
     verticalAlign: 'top',
     position: 'relative'
