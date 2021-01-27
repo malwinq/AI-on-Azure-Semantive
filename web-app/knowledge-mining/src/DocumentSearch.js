@@ -91,6 +91,7 @@ class DocumentSearch extends Component {
                       onChange={this.handleFilterFileChange}
                       name={type}
                       color="primary"
+                      style={{color: '#1b19b6'}}
                     />
                   }
                   label={type}
@@ -105,6 +106,7 @@ class DocumentSearch extends Component {
                     onChange={this.handleFilterNameChange}
                     name="USA"
                     color="primary"
+                    style={{color: '#1b19b6'}}
                   />
                 }
                 label="USA"
@@ -116,6 +118,7 @@ class DocumentSearch extends Component {
                     onChange={this.handleFilterNameChange}
                     name="Europe"
                     color="primary"
+                    style={{color: '#1b19b6'}}
                   />
                 }
                 label="Europe"
