@@ -19,6 +19,15 @@ Up to this point the task was pretty straightforward and consisted mostly of fol
 3. Install Extensions: Azure Functions, Azure Storage
 4. Log into new project
 5. Create Http triggered function
+6. Deply the trigger as full Az. Function, and use it as endpoint for skillset
+
+At this point the work with VS code has ended.
+
+1. Add fiels inside indexes - best to keep the nameing scheme continous
+2. Add field inside indexer 
+3. Add a function into skillset, as new skill (best to use appropreate template)
+4. Reset Indexer
+5. Run Indexer to force it to create new features
 
 ## First skill
 
@@ -28,20 +37,32 @@ If file contains:
 
 - 'eu' - the tag with 'European Union' is assigned
 - 'us' - tag 'USA' is asogned 
-- there can be more than one tag assigned to the document
+- tags database can be expanded - for now tags are hardcoded into function, but could be moved
 
 If file extention is:
 
 - '.jpeg', '.jpg', '.bmp', '.png' - the tag 'Image'  is assigned
+
 - '.pdf' - the tag 'Complete Raport' is assigned
-- .etc
+
+- '.xls', '.xlsx' - 'Calculations'
+
+- '.doc', '.docx', '.odt' - 'Editable Raport'
+
+- different extentions - 'Undefined'
 
 
+## Second skill
 
+Second custom skill will concentrate on the problem of not-compleate or misinterpreted data. The very often occuring problem in the dataset analysis was that the ISO-shortened country names were interpreted as companies/organizations names. 
 
+<img src='img/error.PNG'>
+
+So to resolve this issue it was decided to reach deep into the enrichement levels and pick the tables containing the mistakes. Next the shortened versions of the names were changed into the full names, and added into seperate column. Now even if only shortened name occures in the file, the relation can be found by serching for both, shortened and non-shortened version of name. 
 
 ## Important
 
 - Add JSON into skill set
 - Add field into index
 - Add filed into indexer in JSON (remambair about correct context)
+- Chech the position of argument in the JSON document structure - (eg. document/merged_content/...) always use full path to avoid problems
