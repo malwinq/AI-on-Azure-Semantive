@@ -44,9 +44,15 @@ Zbiór dokumentów zawierających raporty Unii Europejskiej i rządu USA: http:/
 
 Powyższy zbiór dokumentów został wybrany z uwagi na dużą różnorodność danych oraz formatów przekazywania informacji (opisy słowne, tabelaryczne, numeryczne, grafy oraz przebiegi czasowe). Dzięki takiemu szerokiemu spektrum można przetestować duży zakres różnych typów metadanych używanych w silniku wyszukiwania.
 
-Szczegóły dotyczące tworzenia oraz typów użytych Custom Skills, znajdują się w folderze *custom_skills*.
+Custom Skills:
 
-## Aplikacja webowa
+1. name_type i file_type - rozpoznawanie, czy dokument dotyczy Unii Europejskiej, czy USA oraz predykcja typu dokumentu (jeden z: 'Image', 'Classification', 'Complete Raport', 'Undefined', 'Editable Raport', 'Calculations')
+
+2. Poprawa interpretacji państw i ich skrótów - rozwijanie skrótów państw i przypisywanie ich do odpowiedniego pola.
+
+Szczegóły dotyczące tworzenia oraz typów użytych Custom Skills, znajdują się w folderze custom_skills.
+
+## Aplikacja webowa + autoryzacja
 
 Link: https://knowledge-mining-browser.azurewebsites.net/
 
@@ -61,9 +67,9 @@ Biblioteki:
 * babel v7.12.10
 * react-spinner v4.0.1
 
-![Image](images/web-app.png)
+![Image](images/web-app-new.png)
 
-![Image](images/document-card.png)
+![Image](images/document-card-new.png)
 
 Aby opublikować aplikację na Azure, użyliśmy dodatku Azure App Service w VS Code. 
 
@@ -74,6 +80,8 @@ Lokalne uruchomienie aplikacji:
 ```npm install```
 
 ```npm start```
+
+Autoryzacja użytkowników: platforma Auth0 zintegrowana z front-endem aplikacji (tutorial: https://auth0.com/blog/complete-guide-to-react-user-authentication/)
 
 ## Przechowywanie danych + Cognitive Search
 
