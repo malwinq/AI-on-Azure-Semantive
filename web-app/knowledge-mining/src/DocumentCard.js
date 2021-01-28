@@ -4,16 +4,27 @@ import { Card, CardHeader, CardContent, CardActions, Collapse, Avatar,
 import { getFile } from './functions';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import ExpandLessIcon from '@material-ui/icons/ExpandLess';
+import AssignmentIcon from '@material-ui/icons/Assignment';
 import { withStyles } from '@material-ui/core/styles';
+import Badge from '@material-ui/core/Badge';
+import KeyboardIcon from '@material-ui/icons/Keyboard';
+import TranslateIcon from '@material-ui/icons/Translate';
+import PublicIcon from '@material-ui/icons/Public';
+import AccountBalanceIcon from '@material-ui/icons/AccountBalance';
+import PersonIcon from '@material-ui/icons/Person';
+import Chip from '@material-ui/core/Chip';
+import DescriptionIcon from '@material-ui/icons/Description';
+import AssessmentIcon from '@material-ui/icons/Assessment';
 
 const styles = {
   root: {
     borderStyle: 'solid',
     borderColor: '#1b19b6',
     width: 350,
-    minHeight: '22vw',
-    marginTop: 40,
-    marginLeft: 10,
+    minHeight: '26vw',
+    marginTop: 30,
+    marginLeft: 30,
+    marginBottom: 30,
     display: 'inline-block',
     verticalAlign: 'top',
     position: 'relative'
@@ -27,22 +38,26 @@ const styles = {
     marginLeft: 'auto',
     position: 'absolute',
     bottom: '18px',
-    right: '20px'
+    right: '20px',
+    paddingTop: '10px'
   },
   expandOpen: {
-    transform: 'rotate(180deg)',
+    transform: 'rotate(0deg)',
   },
   avatar: {
     backgroundColor: '#1b19b6',
     fontSize: 12,
   },
-  keyphrases: {
-    display: 'inline-block',
-    marginLeft: 7,
+  bullet: {
+    textAlign: 'left'
   },
   download: {
     position: 'absolute',
-    bottom: '20px'
+    bottom: '20px',
+    paddingTop: '10px'
+  },
+  collapse: {
+    paddingBottom: '20px'
   }
 }
 
@@ -83,12 +98,14 @@ class DocumentCard extends Component {
   render() {
     const expanded = this.state.expanded;
     const expandedKeyphrases = this.state.expandedKeyphrases;
-    const { classes } = this.props;
+    const { classes, filterName, filterFile } = this.props;
     const { keyphrases, metadata_storage_path,
         metadata_storage_name, metadata_storage_file_extension,
         metadata_storage_last_modified, locations,
-        organizations, people, metadata_language } = this.props.data;
-    return (
+        organizations, people, metadata_language, file_type, name_type } = this.props.data;
+    let result;
+    if (filterName.includes(name_type) && filterFile.includes(file_type)) {
+      result = (
         <Card className={classes.root}>
           <CardHeader
             avatar={
@@ -96,22 +113,35 @@ class DocumentCard extends Component {
                 {this.getAvatarTitle(metadata_storage_name)}
               </Avatar>
             }
-            title={metadata_storage_name.split('.')[metadata_storage_name.split('.').length-2]}
+            title={<Chip
+              icon={<DescriptionIcon />}
+              label={metadata_storage_name.split('.')[metadata_storage_name.split('.').length-2]}
+              color="primary"
+              variant="outlined"
+            />}
             subheader={new Date(metadata_storage_last_modified).toLocaleDateString()}
           />
           <CardContent>
             <Typography variant="body2" component="p">
-              Keywords: {keyphrases.slice(0, 10).map((word, index) => (
-                <div className={classes.keyphrases}>{keyphrases.slice(0, 20).length-1 !== index ? word + ',' : word} </div>))}
+              <b>{`Keywords `}</b>
+              <Badge badgeContent={keyphrases.length} color="primary" max={999}>
+                <KeyboardIcon/>
+              </Badge> 
+              <ul className={classes.bullet}>
+              {keyphrases.slice(0, 10).map((word, _) => (
+                <li>{word}</li>))}
+              </ul>
             </Typography>
             <Collapse in={expandedKeyphrases} timeout="auto" unmountOnExit>
-              <Typography variant="body2" component="p">
+              <Typography variant="body2">
+                <ul className={classes.bullet}>
                 {keyphrases.slice(10, keyphrases.length < 40 ? keyphrases.length : 40).map((word, index) => (
-                <div className={classes.keyphrases}>{keyphrases.slice(20, keyphrases.length).length-1 !== index ? word + ',' : word} </div>))}
+                  <li>{keyphrases.slice(20, keyphrases.length).length-1 !== index ? word + ',' : word} </li>))}
+                </ul>
               </Typography>
             </Collapse>
             <IconButton
-              // className={classes.expand}
+              className={classes.expandOpen}
               onClick={this.handleExpandKeyphrasesClick}
               aria-expanded={expandedKeyphrases}
               aria-label="show more">
@@ -129,14 +159,38 @@ class DocumentCard extends Component {
               aria-expanded={expanded}
               aria-label="show more"
             >
-              <ExpandMoreIcon />
+              { expanded ? (<ExpandLessIcon/>) : (<ExpandMoreIcon/>) }
             </IconButton>
           </CardActions>
-          <Collapse in={expanded} timeout="auto" unmountOnExit>
+          <Collapse in={expanded} timeout="auto" unmountOnExit className={classes.collapse}>
             <CardContent>
-              <Typography paragraph variant="subtitle2">Data type: {metadata_storage_file_extension}</Typography>
-              <Typography paragraph variant="subtitle2">Language: {metadata_language}</Typography>
-              { locations.length > 0 ? <Typography paragraph variant="subtitle2">Locations:</Typography> : null }
+              <Typography paragraph variant="subtitle2">
+                <b>{`Data format `}</b>
+                <Badge badgeContent={1} color="primary">
+                  <AssignmentIcon/>
+                </Badge>
+                <div>{metadata_storage_file_extension.slice(1, metadata_storage_file_extension.length).toUpperCase()}</div>
+              </Typography>
+              <Typography paragraph variant="subtitle2">
+                <b>{`File type `}</b>
+                <Badge badgeContent={1} color="primary">
+                  <AssessmentIcon/>
+                </Badge>
+                <div>{file_type}</div>
+              </Typography>
+              <Typography paragraph variant="subtitle2">
+                <b>{`Language `}</b>
+                <Badge badgeContent={1} color="primary">
+                  <TranslateIcon/>
+                </Badge>
+                <div>{metadata_language === 'en' ? 'English' : metadata_language}</div>
+              </Typography>
+              { locations.length > 0 ? <Typography paragraph variant="subtitle2">
+                  <b>{`Locations `}</b>
+                  <Badge badgeContent={locations.length} color="primary">
+                    <PublicIcon/>
+                  </Badge>
+                </Typography> : null }
               { locations.length > 0 ?
                   <Typography paragraph variant="body2">
                     {locations.map((location, index) => {
@@ -144,7 +198,12 @@ class DocumentCard extends Component {
                     })}
                   </Typography> : null
               }
-              { organizations.length > 0 ? <Typography paragraph variant="subtitle2">Organizations:</Typography> : null }
+              { organizations.length > 0 ? <Typography paragraph variant="subtitle2">
+                <b>{`Organizations `}</b>
+                <Badge badgeContent={organizations.length} color="primary">
+                  <AccountBalanceIcon/>
+                </Badge>
+              </Typography> : null }
               { organizations.length > 0 ?
                   <Typography paragraph variant="body2">
                     {organizations.map((organization, index) => {
@@ -152,7 +211,12 @@ class DocumentCard extends Component {
                     })}
                   </Typography> : null
               }
-              { people.length > 0 ? <Typography paragraph variant="subtitle2">People:</Typography>: null }
+              { people.length > 0 ? <Typography paragraph variant="subtitle2">
+                <b>{`People `}</b>
+                <Badge badgeContent={people.length} color="primary">
+                  <PersonIcon/>
+                </Badge>
+              </Typography>: null }
               { people.length > 0 ?
                   <Typography paragraph variant="body2">
                     {people.map((person, index) => {
@@ -163,6 +227,14 @@ class DocumentCard extends Component {
             </CardContent>
           </Collapse>
         </Card>
+      );
+    } else {
+      result = null
+    }
+    return (
+      <span>
+        {result}
+      </span>
       );
   }
 }
