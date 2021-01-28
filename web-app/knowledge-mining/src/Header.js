@@ -6,6 +6,7 @@ import InfoIcon from '@material-ui/icons/Info';
 import HelpIcon from '@material-ui/icons/Help';
 import SendIcon from '@material-ui/icons/Send';
 import MoreVertOutlinedIcon from '@material-ui/icons/MoreVertOutlined';
+import AuthenticationButton from './authentication-button';
 
 const styles = {
   navBar: {
@@ -15,6 +16,13 @@ const styles = {
     position: 'absolute',
     top: '1.5%',
     right: '1%',
+    backgroundColor: '#ffffff',
+    color: '#1b19b6'
+  },
+  loginButton: {
+    position: 'absolute',
+    top: '1.5%',
+    right: '4%',
     backgroundColor: '#ffffff',
     color: '#1b19b6'
   }
@@ -71,6 +79,7 @@ class Header extends Component {
                             Knowledge Mining Browser
                         </Typography>
                     </Toolbar>
+                    <AuthenticationButton className={classes.loginButton}/>
                 </AppBar>
                 <Dialog
                     open={this.state.modalHelpOpen}
