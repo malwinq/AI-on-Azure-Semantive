@@ -6,12 +6,13 @@ export const getDocuments = (inputText) => {
             'Content-Type': 'application/json'
         }
     };
-    const apiKey = "<<API_KEY>>";
-    return axios.get(`https://semantive-azure-search.search.windows.net/indexes/semantive-azureblob-index/docs?api-version=2020-06-30&search=${inputText}&api-key=${apiKey}`, config);
+    return axios.get(`https://semantive-api-management.azure-api.net/docs?api-version=2020-06-30&search=${inputText}`, config);
 };
 
 export const getFile = (fileURL) => {
-    return axios.get(fileURL);
+    return axios.get(fileURL, {
+        responseType: 'arraybuffer'
+    });
 };
 
 export const FILE_TYPES = ["Image", "Complete Raport", "Editable Raport", "Calculations", "Undefined"];

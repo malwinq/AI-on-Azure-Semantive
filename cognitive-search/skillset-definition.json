@@ -198,6 +198,34 @@
         }
       ],
       "httpHeaders": {}
+    },
+    {
+      "@odata.type": "#Microsoft.Skills.Custom.WebApiSkill",
+      "name": "#10",
+      "description": "Locations Repair",
+      "context": "/document",
+      "uri": "https://customskillappweu.azurewebsites.net/api/CustomSkill1_HttpTrig?code=TRIM2wtQyPn771dNG6g/lnvBlcoEXj46M8QxEx12KmpU7nKhAQ4kCA==",
+      "httpMethod": "POST",
+      "timeout": "PT30S",
+      "batchSize": 1000,
+      "degreeOfParallelism": null,
+      "inputs": [
+        {
+          "name": "organizations",
+          "source": "/document/merged_content/organizations"
+        },
+        {
+          "name": "locations",
+          "source": "/document/merged_content/locations"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "locations_repaired",
+          "targetName": "locations_repaired"
+        }
+      ],
+      "httpHeaders": {}
     }
   ],
   "cognitiveServices": {
