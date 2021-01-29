@@ -15,6 +15,7 @@ import PersonIcon from '@material-ui/icons/Person';
 import Chip from '@material-ui/core/Chip';
 import DescriptionIcon from '@material-ui/icons/Description';
 import AssessmentIcon from '@material-ui/icons/Assessment';
+const FileSaver = require('file-saver');
 
 const styles = {
   root: {
@@ -77,19 +78,24 @@ class DocumentCard extends Component {
     this.setState({ expandedKeyphrases: !expand });
   };
 
-  downloadFile = (fileURL, fileName) => {
+  downloadFile = (fileURL, fileName, fileExtension) => {
     getFile(fileURL).then((file) => {
-      const blob = new Blob([file], { type: 'application/pdf' });
-        const url = window.URL.createObjectURL(blob);
-        const a = document.createElement('a');
-        a.style.display = 'none';
-        a.href = url;
-        a.download = fileName;
-        document.body.appendChild(a);
-        a.click();
-        window.URL.revokeObjectURL(url);
+      const blob = new Blob([file.data], { type: this.chooseFileType(fileExtension) });
+      FileSaver.saveAs(blob, fileName);
     })
   };
+
+  chooseFileType (fileExtension) {
+    switch (fileExtension) {
+      case '.pdf':
+        return 'application/pdf'
+      case '.jpg':
+      case '.jpeg':
+        return 'image/jpeg'
+      case '.png':
+        return 'image/png'
+    }
+  }
 
   getAvatarTitle = (name) => {
     return name.split('.')[name.split('.').length-2].substring(0,2).toUpperCase();
@@ -101,7 +107,7 @@ class DocumentCard extends Component {
     const { classes, filterName, filterFile } = this.props;
     const { keyphrases, metadata_storage_path,
         metadata_storage_name, metadata_storage_file_extension,
-        metadata_storage_last_modified, locations,
+        metadata_storage_last_modified, locations_repaired,
         organizations, people, metadata_language, file_type, name_type } = this.props.data;
     let result;
     if (filterName.includes(name_type) && filterFile.includes(file_type)) {
@@ -150,7 +156,7 @@ class DocumentCard extends Component {
           </CardContent>
           <CardActions disableSpacing>
             <Button className={classes.download} size="small" color="primary" 
-              onClick={() => this.downloadFile(atob(metadata_storage_path), metadata_storage_name)}>
+              onClick={() => this.downloadFile(atob(metadata_storage_path), metadata_storage_name, metadata_storage_file_extension)}>
               Download
             </Button>
             <IconButton
@@ -185,16 +191,16 @@ class DocumentCard extends Component {
                 </Badge>
                 <div>{metadata_language === 'en' ? 'English' : metadata_language}</div>
               </Typography>
-              { locations.length > 0 ? <Typography paragraph variant="subtitle2">
+              { JSON.parse(locations_repaired).length > 0 ? <Typography paragraph variant="subtitle2">
                   <b>{`Locations `}</b>
-                  <Badge badgeContent={locations.length} color="primary">
+                  <Badge badgeContent={JSON.parse(locations_repaired).length} color="primary">
                     <PublicIcon/>
                   </Badge>
                 </Typography> : null }
-              { locations.length > 0 ?
+              { JSON.parse(locations_repaired).length > 0 ?
                   <Typography paragraph variant="body2">
-                    {locations.map((location, index) => {
-                      return locations.length-1 !== index ? location + ', ' : location
+                    {JSON.parse(locations_repaired).map((location, index) => {
+                      return JSON.parse(locations_repaired).length-1 !== index ? location + ', ' : location
                     })}
                   </Typography> : null
               }

@@ -1,0 +1,43 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "cognitive-search-api",
+    "description": "",
+    "version": "1.0"
+  },
+  "servers": [{
+    "url": "https://semantive-api-management.azure-api.net"
+  }],
+  "paths": {
+    "/docs": {
+      "get": {
+        "summary": "getDocs",
+        "description": "getDocs",
+        "operationId": "getdocs",
+        "parameters": [{
+          "name": "api-version",
+          "in": "query",
+          "required": true,
+          "schema": {
+            "enum": ["2020-06-30"],
+            "type": "string",
+            "default": "2020-06-30"
+          }
+        }, {
+          "name": "search",
+          "in": "query",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        }],
+        "responses": {
+          "200": {
+            "description": "null"
+          }
+        }
+      }
+    }
+  },
+  "components": {}
+}

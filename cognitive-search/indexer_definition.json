@@ -77,6 +77,10 @@
     {
       "sourceFieldName": "/document/name_type",
       "targetFieldName": "name_type"
+    },
+    {
+      "sourceFieldName": "/document/locations_repaired",
+      "targetFieldName": "locations_repaired"
     }
   ],
   "cache": null,

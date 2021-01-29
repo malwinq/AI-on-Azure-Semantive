@@ -4,6 +4,7 @@
    - Cognitive Services
    - Cognitive Search
    - Blob Storage
+   - API Management
       
 ### Blob Storage w Azure Portal
   
@@ -84,7 +85,40 @@
             "targetFieldName": "name_type"
         }
      
-     ```   
+     ```  
+   - Utworzenie serwisu **API Management** jako proxy dla Cognitive Search
+        - utworzenie wystąpienia API Management
+        - utworzenie Produktu nie wymagającego klucza w headerze - https://docs.microsoft.com/pl-pl/azure/api-management/api-management-howto-add-products
+        - importowanie interfesju jako OpenAPI poprzez "open-api-config.json" - https://docs.microsoft.com/pl-pl/azure/api-management/import-and-publish
+        - podpięcie Produktu do interfejsu
+        - utworzenie "Named Values" z kluczem subskrypcji Cognitive Search jako sekret - **searchKey** - https://docs.microsoft.com/en-us/azure/api-management/api-management-howto-properties
+        - utworzenie "Named Values" z nazwą nagłówka "api-key" - **searchHeader**
+        - dodanie dla "Backend" w API Management endpointu będącego odniesieniem do serwisu Cognitive Search - https://docs.microsoft.com/en-us/rest/api/searchmanagement/search-howto-management-rest-api
+        - ustalenie zasad dla "Inbound processing", gdzie pobierane są "Named Values"
+        
+          ```
+            <policies>
+                <inbound>
+                    <base />
+                    <set-header name="{{searchHeader}}" exists-action="override">
+                        <value>{{searchKey}}</value>
+                    </set-header>
+                    <set-backend-service base-url="https://semantive-azure-search.search.windows.net/indexes/semantive-azureblob-index" />
+                </inbound>
+                <backend>
+                    <base />
+                </backend>
+                <outbound>
+                    <base />
+                </outbound>
+                <on-error>
+                    <base />
+                </on-error>
+            </policies>
+          ```
+        - dodanie dla "Frontend" parametru "api-version" ze zdefiniowaną wartością wersji Cognitive Searcha
+        - dodanie dla "Frontend" parametru "search" odpowiadającego za wartość wyszukania w Cognitive Search
+    
    - Wymagana konfiguracja aplikacji REST
         Elementy:
         - utworzony klucz **query key** - <API-KEY>
