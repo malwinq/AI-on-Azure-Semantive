@@ -36,7 +36,7 @@ Funkcjonalność:
 * możliwość pobierania dokumentów
 * autoryzacja użytkowników
 
-## Dataset + Custom Skills
+## Dataset
 
 Use Case: przeszukiwanie rządowych dokumentów i raportów statystycznych.
 
@@ -44,11 +44,15 @@ Zbiór dokumentów zawierających raporty Unii Europejskiej i rządu USA: http:/
 
 Powyższy zbiór dokumentów został wybrany z uwagi na dużą różnorodność danych oraz formatów przekazywania informacji (opisy słowne, tabelaryczne, numeryczne, grafy oraz przebiegi czasowe). Dzięki takiemu szerokiemu spektrum można przetestować duży zakres różnych typów metadanych używanych w silniku wyszukiwania.
 
+## Custom Skills + Cognitive Search
+
 Custom Skills:
 
 1. name_type i file_type - rozpoznawanie, czy dokument dotyczy Unii Europejskiej, czy USA oraz predykcja typu dokumentu (jeden z: 'Image', 'Classification', 'Complete Raport', 'Undefined', 'Editable Raport', 'Calculations')
 
 2. Poprawa interpretacji państw i ich skrótów - rozwijanie skrótów państw i przypisywanie ich do odpowiedniego pola.
+
+Wykorzystana baza danych: Azure Blob Storage.
 
 Szczegóły dotyczące tworzenia oraz typów użytych Custom Skills, znajdują się w folderze custom_skills.
 
@@ -82,12 +86,6 @@ Lokalne uruchomienie aplikacji:
 ```npm start```
 
 Autoryzacja użytkowników: platforma Auth0 zintegrowana z front-endem aplikacji (tutorial: https://auth0.com/blog/complete-guide-to-react-user-authentication/)
-
-## Przechowywanie danych + Cognitive Search
-
-Wykorzystana baza danych: Azure Blob Storage.
-
-// TODO Piotrek - krótki opis jak przechowujemy dane i ew. coś co searchu
 
 ## Podział obowiązków
 
