@@ -2,6 +2,10 @@
 
 Projekt zewnętrzny dla firmy Semantive realizowany w ramach przedmiotu na PW
 
+## Demo
+
+https://youtu.be/kTk0XAE_4fA
+
 ## Zespół
 
 * Malwina Kubas
